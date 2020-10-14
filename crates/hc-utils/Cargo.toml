@@ -1,0 +1,18 @@
+[package]
+name = "hc_utils"
+version = "0.1.0"
+authors = ["zo-el <joel.ulahanna@holo.host>"]
+edition = "2018"
+
+[dependencies]
+serde = "=1.0.104"
+# hdk3 = { path = "../../../holochain/crates/hdk" }
+# hdk3 = { git = "ssh://git@github.com/holochain/holochain.git", rev = "4714fbddc48f1f9987c9f574b8d06510ea58ab16", package = "hdk3" }
+hdk3 = { git = "ssh://git@github.com/holochain/holochain.git", branch = "develop" }
+thiserror = "1.0.20"
+
+[lib]
+name = "hc_utils"
+path = "src/lib.rs"
+# "cargo test --doc" doctests are not performed with the "cdylib" crate-type
+crate-type = ["cdylib", "rlib"]
