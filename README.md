@@ -3,7 +3,7 @@ A util crate for holochain-rsm
 
 
 ## License
- [![License: CAL 1.0](https://img.shields.io/badge/License-CAL-1.0-blue.svg)](https://github.com/holochain/cryptographic-autonomy-license)
+ [![License: CAL 1.0](https://img.shields.io/badge/License-CAL%201.0-blue.svg)](https://github.com/holochain/cryptographic-autonomy-license)
 
   Copyright (C) 2017-2020, Holo Ltd.
 
