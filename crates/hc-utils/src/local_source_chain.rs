@@ -1,6 +1,7 @@
+use crate::error::*;
 use hdk3::prelude::*;
 
-pub fn local_source_chain() -> ExternResult<ElementVec> {
+pub fn local_source_chain() -> UtilsResult<ElementVec> {
     debug!("Getting local chain.")?;
 
     let filter = QueryFilter::new();

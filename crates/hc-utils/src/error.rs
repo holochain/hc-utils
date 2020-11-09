@@ -18,8 +18,8 @@ pub enum UtilsError {
     // WrongHeaderType,
     // #[error("Channel has been deleted too bad")]
     // ChannelDeleted,
-    // #[error("Unable to find entry in dht")]
-    // EntryNotFound,
+    #[error("Unable to find entry in dht")]
+    EntryNotFound,
     #[error("Generic\n Error: {0}")]
     Generic(&'static str),
 }

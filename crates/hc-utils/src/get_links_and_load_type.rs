@@ -1,4 +1,4 @@
-use crate::error::{UtilsError, UtilsResult};
+use crate::error::*;
 use crate::get_latest_entry::get_latest_entry;
 use hdk3::prelude::*;
 use std::convert::TryFrom;

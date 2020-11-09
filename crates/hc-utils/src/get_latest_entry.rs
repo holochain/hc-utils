@@ -5,8 +5,9 @@ enum Latest {
     Continue(EntryHash),
     NoEntry,
 }
+use crate::error::*;
 
-pub fn get_latest_entry(target: EntryHash) -> Result<Entry, String> {
+pub fn get_latest_entry(target: EntryHash) -> UtilsResult<Entry> {
     // Get the original
     let mut latest_profile = _get_latest_entry(target)?;
 
@@ -19,15 +20,13 @@ pub fn get_latest_entry(target: EntryHash) -> Result<Entry, String> {
             // Found an update so follow it
             Latest::Continue(entry_hash) => latest_profile = _get_latest_entry(entry_hash)?,
             // There was no original so return the default
-            Latest::NoEntry => {
-                return Err("Error: utils.get_latest_entry - EntryNotFound".to_string())
-            }
+            Latest::NoEntry => return Err(UtilsError::EntryNotFound),
         }
     }
 }
 
 // Get the actual profile entry
-fn _get_latest_entry(entry: EntryHash) -> Result<Latest, String> {
+fn _get_latest_entry(entry: EntryHash) -> UtilsResult<Latest> {
     match get_details!(entry)? {
         Some(Details::Entry(EntryDetails { entry, updates, .. })) => {
             // No updates, we are done
