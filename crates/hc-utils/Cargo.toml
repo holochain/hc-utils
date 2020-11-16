@@ -7,10 +7,10 @@ edition = "2018"
 [dependencies]
 serde = "=1.0.104"
 # hdk3 = { path = "../../../holochain/crates/hdk" }
-hdk3 = { git = "https://github.com/holochain/holochain.git", rev = "041ad6c2fd88c06eace450074621be2bace0eb05", package = "hdk3" }
-# hdk3 = "0"
-holo_hash = { git = "https://github.com/holochain/holochain.git", rev = "041ad6c2fd88c06eace450074621be2bace0eb05", package = "holo_hash" }
-# holo_hash = "0"
+# hdk3 = { git = "https://github.com/holochain/holochain.git", rev = "3dd53e4ca03c8c0815b4412ea8ebd16f2b19cd47", package = "hdk3" }
+hdk3 = "0"
+# holo_hash = { git = "https://github.com/holochain/holochain.git", rev = "3dd53e4ca03c8c0815b4412ea8ebd16f2b19cd47", package = "holo_hash" }
+holo_hash = "0"
 thiserror = "1.0.20"
 
 [lib]
