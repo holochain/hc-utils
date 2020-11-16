@@ -15,7 +15,7 @@ pub fn local_source_chain() -> UtilsResult<ElementVec> {
     // )));
 
     let header_filter = with_entry_filter.header_type(HeaderType::Create);
-    let query_result: ElementVec = query!(header_filter)?;
+    let query_result: ElementVec = query(header_filter)?;
     debug!("returning local source chain.")?;
     Ok(query_result)
 }
