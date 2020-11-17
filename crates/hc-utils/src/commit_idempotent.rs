@@ -14,7 +14,7 @@ pub fn commit_idempotent(entry_id: String, value: Entry) -> UtilsResult<HeaderHa
         }
     }
     debug!("Creating entry...")?;
-    let result = create!(EntryDefId::App(entry_id), value)?;
+    let result = create(EntryDefId::App(entry_id), value)?;
     Ok(result)
 }
 
