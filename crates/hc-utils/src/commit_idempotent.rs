@@ -5,7 +5,6 @@ use hdk3::prelude::*;
 /// Query for an existing Entry in the local source-chain matching the given EntryType name(s).  If
 /// one exists, return it Address, otherwise commit it.
 pub fn commit_idempotent(entry_id: String, value: Entry) -> UtilsResult<HeaderHash> {
-    debug!("Iterate through chain ")?;
     for element in local_source_chain().unwrap().0 {
         if let element::ElementEntry::Present(entry) = element.entry() {
             if entry.clone() == value {
@@ -13,7 +12,6 @@ pub fn commit_idempotent(entry_id: String, value: Entry) -> UtilsResult<HeaderHa
             }
         }
     }
-    debug!("Creating entry...")?;
     let result = create(EntryDefId::App(entry_id), value)?;
     Ok(result)
 }
