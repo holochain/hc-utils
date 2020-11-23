@@ -1,6 +1,6 @@
 use hdk3::prelude::*;
 
-#[derive(thiserror::Error, Debug)]
+#[derive(thiserror::Error, Debug, Clone)]
 pub enum UtilsError {
     #[error(transparent)]
     Serialization(#[from] SerializedBytesError),
