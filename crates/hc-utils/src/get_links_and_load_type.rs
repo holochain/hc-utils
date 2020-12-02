@@ -12,7 +12,7 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
     Ok(link_info
         .iter()
         .map(
-            |link| match get_latest_entry(link.target.clone(), GetOptions) {
+            |link| match get_latest_entry(link.target.clone(), Default::default()) {
                 Ok(entry) => match R::try_from(entry.clone()) {
                     Ok(e) => Ok(e),
                     Err(_) => Err(UtilsError::Generic(
