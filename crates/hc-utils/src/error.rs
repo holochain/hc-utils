@@ -8,8 +8,6 @@ pub enum UtilsError {
     EntryError(#[from] EntryError),
     #[error(transparent)]
     Wasm(#[from] WasmError),
-    #[error(transparent)]
-    HdkError(#[from] HdkError),
     #[error("Agent has not created a profile yet")]
     AgentNotRegisteredProfile,
     // #[error("Header that was just committed is missing. This means something went really wrong")]
