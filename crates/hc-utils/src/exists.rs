@@ -1,6 +1,6 @@
 use crate::error::*;
 use crate::local_source_chain::local_source_chain;
-use hdk3::prelude::*;
+use hdk::prelude::*;
 
 /// Query for an existing Entry in the local source-chain matching the given EntryType name(s).  If
 /// one exists, return it Address, otherwise returns error.

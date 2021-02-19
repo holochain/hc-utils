@@ -1,5 +1,5 @@
 use crate::error::*;
-use hdk3::prelude::*;
+use hdk::prelude::*;
 
 pub fn local_source_chain() -> UtilsResult<ElementVec> {
     let filter = QueryFilter::new();

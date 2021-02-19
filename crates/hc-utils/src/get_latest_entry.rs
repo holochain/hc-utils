@@ -1,4 +1,4 @@
-use hdk3::prelude::*;
+use hdk::prelude::*;
 use metadata::EntryDetails;
 enum Latest {
     Found(Entry),
