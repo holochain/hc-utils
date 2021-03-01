@@ -14,7 +14,7 @@ pub struct WrappedAgentPubKey(pub AgentPubKey);
 #[serde(into = "HashString")]
 pub struct WrappedHeaderHash(pub HeaderHash);
 
-#[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
+#[derive(Hash, Eq, Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 #[serde(try_from = "HashString")]
 #[serde(into = "HashString")]
 pub struct WrappedEntryHash(pub EntryHash);
