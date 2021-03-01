@@ -1,5 +1,5 @@
 use crate::error::*;
-use hdk3::prelude::*;
+use hdk::prelude::*;
 
 pub fn get_header(entry: EntryHash) -> UtilsResult<HeaderHash> {
     match get(entry, Default::default())? {

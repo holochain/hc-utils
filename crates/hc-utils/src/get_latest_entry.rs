@@ -1,4 +1,4 @@
-use hdk3::prelude::*;
+use hdk::prelude::*;
 use metadata::EntryDetails;
 enum Latest {
     Found(Entry),
@@ -7,6 +7,13 @@ enum Latest {
 }
 use crate::error::*;
 
+/// Obtains the updates for the target Entry, and examines all of them to selects the latest one by
+/// looking at the update time in its header.
+/// 
+/// An identical Entry can be committed by multiple Agents; this obtains the Entry's Header from the
+/// perspective of *this* Agent.  It also may be committed by the same Agent multiple times, this
+/// algorithm depends on either making the Entry unique, *or* that the caller is OK with it
+/// returning the latest Update by any of this Agent's commits of this identical Entry.
 pub fn get_latest_entry(target: EntryHash, option: GetOptions) -> UtilsResult<Entry> {
     // Get the original
     let mut latest_profile = _get_latest_entry(target, option.clone())?;

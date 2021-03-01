@@ -1,7 +1,7 @@
 use crate::error::*;
-use hdk3::prelude::*;
+use hdk::prelude::*;
 
-pub fn local_source_chain() -> UtilsResult<ElementVec> {
+pub fn local_source_chain() -> UtilsResult<Vec<Element>> {
     let filter = QueryFilter::new();
     let with_entry_filter = filter.include_entries(true);
 
@@ -13,6 +13,6 @@ pub fn local_source_chain() -> UtilsResult<ElementVec> {
     // )));
 
     let header_filter = with_entry_filter.header_type(HeaderType::Create);
-    let query_result: ElementVec = query(header_filter)?;
+    let query_result: Vec<Element> = query(header_filter)?;
     Ok(query_result)
 }

@@ -1,5 +1,5 @@
 use crate::error::*;
-use hdk3::prelude::*;
+use hdk::prelude::*;
 use link::Link;
 
 pub fn get_latest_link(base: EntryHash, tag: Option<LinkTag>) -> UtilsResult<Option<Link>> {

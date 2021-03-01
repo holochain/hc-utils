@@ -1,6 +1,6 @@
 [package]
 name = "hc_utils"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["zo-el <joel.ulahanna@holo.host>"]
 edition = "2018"
 
@@ -8,7 +8,7 @@ edition = "2018"
 serde = "=1.0.104"
 # hdk3 = { path = "../../../holochain/crates/hdk" }
 # hdk3 = { git = "https://github.com/holochain/holochain.git", rev = "3dd53e4ca03c8c0815b4412ea8ebd16f2b19cd47", package = "hdk3" }
-hdk3 = "0"
+hdk = "0"
 # holo_hash = { git = "https://github.com/holochain/holochain.git", rev = "3dd53e4ca03c8c0815b4412ea8ebd16f2b19cd47", package = "holo_hash" }
 holo_hash = "0"
 thiserror = "1.0.22"

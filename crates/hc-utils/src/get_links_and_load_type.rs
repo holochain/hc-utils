@@ -1,6 +1,6 @@
 use crate::error::*;
 use crate::get_latest_entry::get_latest_entry;
-use hdk3::prelude::*;
+use hdk::prelude::*;
 use std::convert::TryFrom;
 
 pub fn get_links_and_load_type<R: TryFrom<Entry>>(
