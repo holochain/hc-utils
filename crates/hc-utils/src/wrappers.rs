@@ -4,12 +4,12 @@ use holo_hash::DnaHash;
 #[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 pub struct HashString(String);
 
-#[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
+#[derive(Hash, Eq, Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 #[serde(try_from = "HashString")]
 #[serde(into = "HashString")]
 pub struct WrappedAgentPubKey(pub AgentPubKey);
 
-#[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
+#[derive(Hash, Eq, Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 #[serde(try_from = "HashString")]
 #[serde(into = "HashString")]
 pub struct WrappedHeaderHash(pub HeaderHash);
@@ -19,7 +19,7 @@ pub struct WrappedHeaderHash(pub HeaderHash);
 #[serde(into = "HashString")]
 pub struct WrappedEntryHash(pub EntryHash);
 
-#[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
+#[derive(Hash, Eq, Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 #[serde(try_from = "HashString")]
 #[serde(into = "HashString")]
 pub struct WrappedDnaHash(pub DnaHash);
