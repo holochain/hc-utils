@@ -1,4 +1,5 @@
 use hdk3::prelude::*;
+use holo_hash::DnaHash;
 
 #[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 pub struct HashString(String);
@@ -17,6 +18,11 @@ pub struct WrappedHeaderHash(pub HeaderHash);
 #[serde(try_from = "HashString")]
 #[serde(into = "HashString")]
 pub struct WrappedEntryHash(pub EntryHash);
+
+#[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
+#[serde(try_from = "HashString")]
+#[serde(into = "HashString")]
+pub struct WrappedDnaHash(pub DnaHash);
 
 impl TryFrom<HashString> for WrappedAgentPubKey {
     type Error = String;
@@ -66,6 +72,21 @@ impl TryFrom<HashString> for WrappedEntryHash {
 }
 impl From<WrappedEntryHash> for HashString {
     fn from(wrapped_entry_hash: WrappedEntryHash) -> Self {
+        Self(wrapped_entry_hash.0.to_string())
+    }
+}
+
+impl TryFrom<HashString> for WrappedDnaHash {
+    type Error = String;
+    fn try_from(ui_string_hash: HashString) -> Result<Self, Self::Error> {
+        match DnaHash::try_from(ui_string_hash.0) {
+            Ok(address) => Ok(Self(address)),
+            Err(e) => Err(format!("{:?}", e)),
+        }
+    }
+}
+impl From<WrappedDnaHash> for HashString {
+    fn from(wrapped_entry_hash: WrappedDnaHash) -> Self {
         Self(wrapped_entry_hash.0.to_string())
     }
 }

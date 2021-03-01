@@ -1,8 +1,9 @@
+use crate::error::*;
 use hdk3::prelude::*;
 use link::Link;
 
-pub fn get_latest_link(base: EntryHash, tag: LinkTag) -> Result<Option<Link>, String> {
-    let profile_info = get_links!(base.into(), tag)?.into_inner();
+pub fn get_latest_link(base: EntryHash, tag: Option<LinkTag>) -> UtilsResult<Option<Link>> {
+    let profile_info = get_links(base.into(), tag)?.into_inner();
 
     // Find the latest
     let latest_info =

@@ -1,6 +1,6 @@
 use hdk3::prelude::*;
 
-#[derive(thiserror::Error, Debug)]
+#[derive(thiserror::Error, Debug, Clone)]
 pub enum UtilsError {
     #[error(transparent)]
     Serialization(#[from] SerializedBytesError),
@@ -18,8 +18,8 @@ pub enum UtilsError {
     // WrongHeaderType,
     // #[error("Channel has been deleted too bad")]
     // ChannelDeleted,
-    // #[error("Unable to find entry in dht")]
-    // EntryNotFound,
+    #[error("Unable to find entry in dht")]
+    EntryNotFound,
     #[error("Generic\n Error: {0}")]
     Generic(&'static str),
 }

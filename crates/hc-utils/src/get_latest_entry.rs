@@ -5,10 +5,11 @@ enum Latest {
     Continue(EntryHash),
     NoEntry,
 }
+use crate::error::*;
 
-pub fn get_latest_entry(target: EntryHash) -> Result<Entry, String> {
+pub fn get_latest_entry(target: EntryHash, option: GetOptions) -> UtilsResult<Entry> {
     // Get the original
-    let mut latest_profile = _get_latest_entry(target)?;
+    let mut latest_profile = _get_latest_entry(target, option.clone())?;
 
     // Follow any updates until there are none
     // and choose the update with the latest timestamp
@@ -17,18 +18,18 @@ pub fn get_latest_entry(target: EntryHash) -> Result<Entry, String> {
             // Found an entry with no more updates
             Latest::Found(entry) => return Ok(entry),
             // Found an update so follow it
-            Latest::Continue(entry_hash) => latest_profile = _get_latest_entry(entry_hash)?,
-            // There was no original so return the default
-            Latest::NoEntry => {
-                return Err("Error: utils.get_latest_entry - EntryNotFound".to_string())
+            Latest::Continue(entry_hash) => {
+                latest_profile = _get_latest_entry(entry_hash, option.clone())?
             }
+            // There was no original so return the default
+            Latest::NoEntry => return Err(UtilsError::EntryNotFound),
         }
     }
 }
 
 // Get the actual profile entry
-fn _get_latest_entry(entry: EntryHash) -> Result<Latest, String> {
-    match get_details!(entry)? {
+fn _get_latest_entry(entry: EntryHash, option: GetOptions) -> UtilsResult<Latest> {
+    match get_details(entry, option)? {
         Some(Details::Entry(EntryDetails { entry, updates, .. })) => {
             // No updates, we are done
             if updates.is_empty() {
