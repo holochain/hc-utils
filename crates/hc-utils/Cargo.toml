@@ -12,7 +12,7 @@ hdk = "0"
 # holo_hash = { git = "https://github.com/holochain/holochain.git", rev = "3dd53e4ca03c8c0815b4412ea8ebd16f2b19cd47", package = "holo_hash" }
 holo_hash = "0.0.2-alpha.1"
 thiserror = "1.0.22"
-paste = "1.0.5"
+paste = "0"
 
 [lib]
 name = "hc_utils"
