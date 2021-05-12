@@ -1,5 +1,5 @@
 use hdk::prelude::*;
-use holo_hash::DnaHash;
+use ::holo_hash::DnaHash;
 
 #[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 pub struct HashString(String);
