@@ -42,7 +42,7 @@ impl From<WrappedAgentPubKey> for AgentPubKey {
 
 impl From<WrappedAgentPubKey> for HashString {
     fn from(wrapped_agent_pub_key: WrappedAgentPubKey) -> Self {
-        Self(format!("{:?}", wrapped_agent_pub_key.0))
+        Self(wrapped_agent_pub_key.0.to_string().to_lowercase())
     }
 }
 
@@ -57,7 +57,7 @@ impl TryFrom<HashString> for WrappedHeaderHash {
 }
 impl From<WrappedHeaderHash> for HashString {
     fn from(wrapped_header_hash: WrappedHeaderHash) -> Self {
-        Self(format!("{:?}", wrapped_header_hash.0))
+        Self(wrapped_header_hash.0.to_string().to_lowercase())
     }
 }
 
@@ -72,7 +72,7 @@ impl TryFrom<HashString> for WrappedEntryHash {
 }
 impl From<WrappedEntryHash> for HashString {
     fn from(wrapped_entry_hash: WrappedEntryHash) -> Self {
-        Self(format!("{:?}", wrapped_entry_hash.0))
+        Self(wrapped_entry_hash.0.to_string().to_lowercase())
     }
 }
 
@@ -87,6 +87,6 @@ impl TryFrom<HashString> for WrappedDnaHash {
 }
 impl From<WrappedDnaHash> for HashString {
     fn from(wrapped_dna_hash: WrappedDnaHash) -> Self {
-        Self(format!("{:?}", wrapped_dna_hash.0))
+        Self(wrapped_dna_hash.0.to_string().to_lowercase())
     }
 }
