@@ -27,7 +27,7 @@ pub struct WrappedDnaHash(pub DnaHash);
 impl TryFrom<HashString> for WrappedAgentPubKey {
     type Error = String;
     fn try_from(ui_string_hash: HashString) -> Result<Self, Self::Error> {
-        match AgentPubKey::try_from(ui_string_hash.0) {
+        match AgentPubKey::try_from(ui_string_hash.0.replace("uhcak", "uhCAk")) {
             Ok(address) => Ok(Self(address)),
             Err(e) => Err(format!("{:?}", e)),
         }
@@ -49,7 +49,7 @@ impl From<WrappedAgentPubKey> for HashString {
 impl TryFrom<HashString> for WrappedHeaderHash {
     type Error = String;
     fn try_from(ui_string_hash: HashString) -> Result<Self, Self::Error> {
-        match HeaderHash::try_from(ui_string_hash.0) {
+        match HeaderHash::try_from(ui_string_hash.0.replace("uhckk", "uhCkk")) {
             Ok(address) => Ok(Self(address)),
             Err(e) => Err(format!("what is this error {:?}", e)),
         }
@@ -64,7 +64,7 @@ impl From<WrappedHeaderHash> for HashString {
 impl TryFrom<HashString> for WrappedEntryHash {
     type Error = String;
     fn try_from(ui_string_hash: HashString) -> Result<Self, Self::Error> {
-        match EntryHash::try_from(ui_string_hash.0) {
+        match EntryHash::try_from(ui_string_hash.0.replace("uhcek", "uhCEk")) {
             Ok(address) => Ok(Self(address)),
             Err(e) => Err(format!("{:?}", e)),
         }
@@ -79,7 +79,7 @@ impl From<WrappedEntryHash> for HashString {
 impl TryFrom<HashString> for WrappedDnaHash {
     type Error = String;
     fn try_from(ui_string_hash: HashString) -> Result<Self, Self::Error> {
-        match DnaHash::try_from(ui_string_hash.0) {
+        match DnaHash::try_from(ui_string_hash.0.replace("uhc0k", "uhC0k")) {
             Ok(address) => Ok(Self(address)),
             Err(e) => Err(format!("{:?}", e)),
         }
