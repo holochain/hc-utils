@@ -24,3 +24,8 @@ pub use wrappers::WrappedAgentPubKey;
 pub use wrappers::WrappedDnaHash;
 pub use wrappers::WrappedEntryHash;
 pub use wrappers::WrappedHeaderHash;
+pub mod wrappers_url_safe;
+pub use wrappers_url_safe::SafeWrappedAgentPubKey;
+pub use wrappers_url_safe::SafeWrappedDnaHash;
+pub use wrappers_url_safe::SafeWrappedEntryHash;
+pub use wrappers_url_safe::SafeWrappedHeaderHash;
