@@ -1,5 +1,5 @@
-use hdk::prelude::*;
 use ::holo_hash::DnaHash;
+use hdk::prelude::*;
 
 #[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 pub struct HashString(String);
@@ -24,6 +24,11 @@ pub struct SafeWrappedEntryHash(pub EntryHash);
 #[serde(into = "HashString")]
 pub struct SafeWrappedDnaHash(pub DnaHash);
 
+const AGENT_PREFIX: &str = "hcak";
+const HEADER_PREFIX: &str = "hckk";
+const ENTRY_PREFIX: &str = "hcek";
+const DNA_PREFIX: &str = "hc0k";
+
 impl TryFrom<HashString> for SafeWrappedAgentPubKey {
     type Error = String;
     fn try_from(ui_string_hash: HashString) -> Result<Self, Self::Error> {
@@ -32,7 +37,10 @@ impl TryFrom<HashString> for SafeWrappedAgentPubKey {
             hash.replace_range(..4, "");
             assert_eq!(59, hash.len());
             match multibase::decode(hash) {
-                Ok((_, bytes)) => Ok(Self(holo_hash::AgentPubKey::from_raw_36_and_type(bytes, holo_hash::hash_type::Agent))),
+                Ok((_, bytes)) => Ok(Self(holo_hash::AgentPubKey::from_raw_36_and_type(
+                    bytes,
+                    holo_hash::hash_type::Agent,
+                ))),
                 Err(e) => Err(format!("{:?}", e)),
             }
         } else {
@@ -40,14 +48,13 @@ impl TryFrom<HashString> for SafeWrappedAgentPubKey {
         }
     }
 }
-const AGENT_PREFIX: &str = "hcak";
-const HEADER_PREFIX: &str = "hckk";
-const ENTRY_PREFIX: &str = "hcek";
-const DNA_PREFIX: &str = "hc0k";
 
 impl From<SafeWrappedAgentPubKey> for HashString {
     fn from(wrapped_agent_pub_key: SafeWrappedAgentPubKey) -> Self {
-        let hash = multibase::encode(multibase::Base::Base32Lower, &wrapped_agent_pub_key.0.get_raw_39()[3..]);
+        let hash = multibase::encode(
+            multibase::Base::Base32Lower,
+            &wrapped_agent_pub_key.0.get_raw_39()[3..],
+        );
         Self(format!("{}{}", AGENT_PREFIX, hash.to_string()))
     }
 }
@@ -60,7 +67,10 @@ impl TryFrom<HashString> for SafeWrappedHeaderHash {
             hash.replace_range(..4, "");
             assert_eq!(59, hash.len());
             match multibase::decode(hash) {
-                Ok((_, bytes)) => Ok(Self(holo_hash::HeaderHash::from_raw_36_and_type(bytes, holo_hash::hash_type::Header))),
+                Ok((_, bytes)) => Ok(Self(holo_hash::HeaderHash::from_raw_36_and_type(
+                    bytes,
+                    holo_hash::hash_type::Header,
+                ))),
                 Err(e) => Err(format!("{:?}", e)),
             }
         } else {
@@ -70,7 +80,10 @@ impl TryFrom<HashString> for SafeWrappedHeaderHash {
 }
 impl From<SafeWrappedHeaderHash> for HashString {
     fn from(wrapped_header_hash: SafeWrappedHeaderHash) -> Self {
-        let hash = multibase::encode(multibase::Base::Base32Lower, &wrapped_header_hash.0.get_raw_39()[3..]);
+        let hash = multibase::encode(
+            multibase::Base::Base32Lower,
+            &wrapped_header_hash.0.get_raw_39()[3..],
+        );
         Self(format!("{}{}", HEADER_PREFIX, hash.to_string()))
     }
 }
@@ -83,7 +96,10 @@ impl TryFrom<HashString> for SafeWrappedEntryHash {
             hash.replace_range(..4, "");
             assert_eq!(59, hash.len());
             match multibase::decode(hash) {
-                Ok((_, bytes)) => Ok(Self(holo_hash::EntryHash::from_raw_36_and_type(bytes, holo_hash::hash_type::Entry))),
+                Ok((_, bytes)) => Ok(Self(holo_hash::EntryHash::from_raw_36_and_type(
+                    bytes,
+                    holo_hash::hash_type::Entry,
+                ))),
                 Err(e) => Err(format!("{:?}", e)),
             }
         } else {
@@ -93,7 +109,10 @@ impl TryFrom<HashString> for SafeWrappedEntryHash {
 }
 impl From<SafeWrappedEntryHash> for HashString {
     fn from(wrapped_entry_hash: SafeWrappedEntryHash) -> Self {
-        let hash = multibase::encode(multibase::Base::Base32Lower, &wrapped_entry_hash.0.get_raw_39()[3..]);
+        let hash = multibase::encode(
+            multibase::Base::Base32Lower,
+            &wrapped_entry_hash.0.get_raw_39()[3..],
+        );
         Self(format!("{}{}", ENTRY_PREFIX, hash.to_string()))
     }
 }
@@ -106,7 +125,10 @@ impl TryFrom<HashString> for SafeWrappedDnaHash {
             hash.replace_range(..4, "");
             assert_eq!(59, hash.len());
             match multibase::decode(hash) {
-                Ok((_, bytes)) => Ok(Self(holo_hash::DnaHash::from_raw_36_and_type(bytes, holo_hash::hash_type::Dna))),
+                Ok((_, bytes)) => Ok(Self(holo_hash::DnaHash::from_raw_36_and_type(
+                    bytes,
+                    holo_hash::hash_type::Dna,
+                ))),
                 Err(e) => Err(format!("{:?}", e)),
             }
         } else {
@@ -116,7 +138,10 @@ impl TryFrom<HashString> for SafeWrappedDnaHash {
 }
 impl From<SafeWrappedDnaHash> for HashString {
     fn from(wrapped_dna_hash: SafeWrappedDnaHash) -> Self {
-        let hash = multibase::encode(multibase::Base::Base32Lower, &wrapped_dna_hash.0.get_raw_39()[3..]);
+        let hash = multibase::encode(
+            multibase::Base::Base32Lower,
+            &wrapped_dna_hash.0.get_raw_39()[3..],
+        );
         Self(format!("{}{}", DNA_PREFIX, hash.to_string()))
     }
 }
