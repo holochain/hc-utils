@@ -18,6 +18,8 @@ pub enum UtilsError {
     // ChannelDeleted,
     #[error("Unable to find entry in dht")]
     EntryNotFound,
+    #[error("Link does not exist")]
+    RemoveLinkError,
     #[error("Generic\n Error: {0}")]
     Generic(&'static str),
 }
