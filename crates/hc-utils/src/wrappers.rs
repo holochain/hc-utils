@@ -1,5 +1,5 @@
-use hdk::prelude::*;
 use ::holo_hash::DnaHash;
+use hdk::prelude::*;
 
 #[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 pub struct HashString(String);
@@ -86,7 +86,7 @@ impl TryFrom<HashString> for WrappedDnaHash {
     }
 }
 impl From<WrappedDnaHash> for HashString {
-    fn from(wrapped_entry_hash: WrappedDnaHash) -> Self {
-        Self(wrapped_entry_hash.0.to_string())
+    fn from(wrapped_dna_hash: WrappedDnaHash) -> Self {
+        Self(wrapped_dna_hash.0.to_string())
     }
 }
