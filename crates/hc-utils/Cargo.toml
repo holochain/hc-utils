@@ -1,17 +1,14 @@
 [package]
 name = "hc_utils"
-version = "0.2.2"
+version = "0.3.0"
 authors = ["zo-el <joel.ulahanna@holo.host>"]
 edition = "2018"
 
 [dependencies]
-serde = "=1.0.123"
-# hdk3 = { path = "../../../holochain/crates/hdk" }
-# hdk3 = { git = "https://github.com/holochain/holochain.git", rev = "3dd53e4ca03c8c0815b4412ea8ebd16f2b19cd47", package = "hdk3" }
-hdk = "0.0.102"
-# holo_hash = { git = "https://github.com/holochain/holochain.git", rev = "3dd53e4ca03c8c0815b4412ea8ebd16f2b19cd47", package = "holo_hash" }
-holo_hash = "0.0.4"
-thiserror = "1.0.22"
+serde = "1.0"
+hdk = "0"
+holo_hash = "0"
+thiserror = "1.0"
 
 [lib]
 name = "hc_utils"
