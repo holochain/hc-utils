@@ -12,7 +12,10 @@ pub fn commit_idempotent(entry_id: String, value: Entry) -> UtilsResult<HeaderHa
             }
         }
     }
-    let result = create(EntryWithDefId::new(EntryDefId::App(entry_id), value))?;
+    let result = create(CreateInput{
+        entry_def_id: EntryDefId::App(entry_id), 
+        entry: value, 
+        chain_top_ordering: ChainTopOrdering::Strict})?;
     Ok(result)
 }
 
