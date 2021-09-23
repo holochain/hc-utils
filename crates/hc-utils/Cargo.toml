@@ -6,7 +6,7 @@ edition = "2018"
 
 [dependencies]
 serde = "1.0"
-hdk = "=0.0.106"
+hdk = "=0.0.107"
 holo_hash = "=0.0.6"
 thiserror = "1.0"
 
