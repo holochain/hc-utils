@@ -23,8 +23,3 @@ pub use local_source_chain::local_source_chain;
 // pub use entry_id_to_index::entry_id_to_index;
 // pub mod entry_id_to_app_entry_type;
 // pub use entry_id_to_app_entry_type::entry_id_to_app_entry_type;
-pub mod wrappers;
-pub use wrappers::WrappedAgentPubKey;
-pub use wrappers::WrappedDnaHash;
-pub use wrappers::WrappedEntryHash;
-pub use wrappers::WrappedHeaderHash;
