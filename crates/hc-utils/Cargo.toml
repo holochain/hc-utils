@@ -1,13 +1,13 @@
 [package]
 name = "hc_utils"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["zo-el <joel.ulahanna@holo.host>"]
 edition = "2018"
 
 [dependencies]
 serde = "1.0"
-hdk = "=0.0.107"
-holo_hash = { version = "=0.0.7", features = ["encoding"] }
+hdk = "=0.0.110"
+holo_hash = { version = "=0.0.9", features = ["encoding"] }
 thiserror = "1.0"
 
 [lib]
