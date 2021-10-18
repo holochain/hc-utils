@@ -1,8 +1,8 @@
-use hdk::prelude::*;
 use ::holo_hash::DnaHash;
+use hdk::prelude::*;
 
 #[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
-pub struct HashString(String);
+pub struct HashString(pub String);
 
 #[derive(Hash, Eq, Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 #[serde(try_from = "HashString")]
