@@ -7,6 +7,9 @@ A util crate for holochain-rsm
 | hc-utils | hdk      |
 | -------- | -------- |
 | v0.0.107 | v0.0.107 |
+| v0.0.108 | v0.0.108 |
+| v0.0.109 | v0.0.109 |
+| v0.0.110 | v0.0.110 |
 
 ## License
 
