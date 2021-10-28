@@ -6,8 +6,8 @@ edition = "2018"
 
 [dependencies]
 serde = "1.0"
-hdk = "=0.0.107"
-holo_hash = { version = "=0.0.7", features = ["encoding"] }
+hdk = "=0.0.112"
+holo_hash = { version = "=0.0.10", features = ["encoding"] }
 thiserror = "1.0"
 
 [lib]

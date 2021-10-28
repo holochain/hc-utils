@@ -3,7 +3,6 @@ use crate::error::*;
 
 pub fn remove_link(base: EntryHash, target: EntryHash, tag: LinkTag) -> UtilsResult<HeaderHash> {
     match get_links(base, Some(tag))?
-        .into_inner()
         .into_iter()
         .find(|link| target == link.target)
     {
