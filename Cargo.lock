@@ -137,7 +137,7 @@ checksum = "ab5ef0d4909ef3724cc8cce6ccc8572c5c817592e9285f5464f8e86f8bd3726e"
 
 [[package]]
 name = "hc_utils"
-version = "0.0.112"
+version = "0.0.113"
 dependencies = [
  "hdk",
  "holo_hash",
@@ -147,9 +147,9 @@ dependencies = [
 
 [[package]]
 name = "hdk"
-version = "0.0.112"
+version = "0.0.113"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ff876079ec7a06b7917ed66968503685db908513694de3e8e2948d126bfa6255"
+checksum = "04b08cbd3e9b196db10ca167be9526bbdf98d1b3219ed054f6182f2466c0bdce"
 dependencies = [
  "hdk_derive",
  "holo_hash",
@@ -166,9 +166,9 @@ dependencies = [
 
 [[package]]
 name = "hdk_derive"
-version = "0.0.14"
+version = "0.0.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a629d3c1d64a179d6038de36e69d9c6980b348c56dadfee4aa91ec59d6502587"
+checksum = "90226ed58049c2e63b2f5940cbf36ea7a49556af23a643c9398fc24c2b0f6a0c"
 dependencies = [
  "holochain_zome_types",
  "paste",
@@ -179,9 +179,9 @@ dependencies = [
 
 [[package]]
 name = "holo_hash"
-version = "0.0.10"
+version = "0.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ee83d18d883878dc9e6da3e162a42b882db62f3fd7e957e0b5b85f04a5dbe117"
+checksum = "12dd2004f3732b61a4a508b97cae2d12a0809cc2b441da023274a760405871e6"
 dependencies = [
  "base64",
  "blake2b_simd",
@@ -245,9 +245,9 @@ dependencies = [
 
 [[package]]
 name = "holochain_zome_types"
-version = "0.0.14"
+version = "0.0.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d287e13e403ea66f9615e3a301acd49f9649a0bb97c5a74fa14b23e13b126077"
+checksum = "3f5bde7670f7de4856cb56778a3d7600d5f26e6bd54382e034f7d307b0e2c1fd"
 dependencies = [
  "chrono",
  "holo_hash",
