@@ -1,26 +1,8 @@
-[package]
-name = "hc_utils"
-version = "0.0.113"
-description = "Helper functions for holochain hdk development"
-homepage = "https://github.com/holochain/hc-utils"
-license = "Apache-2.0"
-authors = ["zo-el <joel.ulahanna@holo.host>"]
-keywords = [ "holochain", "holo", "hdk", "hdk-helpers"]
-categories = [ "cryptography" ]
-readme = "README.md"
-edition = "2018"
+[workspace]
 
-[dependencies]
-serde = "1.0"
-hdk = "=0.0.113"
-holo_hash = { version = "=0.0.11", features = ["encoding"] }
-thiserror = "1.0"
-
-[lib]
-name = "hc_utils"
-path = "src/lib.rs"
-# "cargo test --doc" doctests are not performed with the "cdylib" crate-type
-crate-type = ["cdylib", "rlib"]
+members = [
+  "crates/hc-utils",
+]
 
 [profile.dev]
 opt-level = "z"
@@ -28,6 +10,6 @@ opt-level = "z"
 [profile.release]
 opt-level = "z"
 
-# [patch.crates-io]
+[patch.crates-io]
 # hdk = {git = "https://github.com/holochain/holochain.git", rev = "a1206a694fe3b521440fe633db99a50b8255c1b2", package = "hdk"}
 # holo_hash = {git = "https://github.com/holochain/holochain.git", rev = "a1206a694fe3b521440fe633db99a50b8255c1b2", package = "holo_hash"}
