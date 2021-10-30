@@ -3,6 +3,7 @@ use crate::get_latest_entry::get_latest_entry;
 use hdk::prelude::*;
 use std::convert::TryFrom;
 
+/// Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry. 
 pub fn get_links_and_load_type<R: TryFrom<Entry>>(
     base: EntryHash,
     tag: Option<LinkTag>,

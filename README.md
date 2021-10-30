@@ -2,16 +2,6 @@
 
 A util crate for holochain-rsm
 
-**Map versions:**
-
-| hc-utils | hdk      |
-| -------- | -------- |
-| v0.0.107 | v0.0.107 |
-| v0.0.108 | v0.0.108 |
-| v0.0.109 | v0.0.109 |
-| v0.0.110 | v0.0.110 |
-| v0.0.111 | v0.0.111 |
-
 ## License
 
 [![License: CAL 1.0](https://img.shields.io/badge/License-CAL%201.0-blue.svg)](https://github.com/holochain/cryptographic-autonomy-license)
