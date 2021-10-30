@@ -8,9 +8,10 @@
 # How to make a update?
 #	- Update the version-manager.json file
 # 	- make update
-
+#	- make publish
 # Publishing
-publish-crates:
+
+publish:
 	cargo publish
 
 update:
