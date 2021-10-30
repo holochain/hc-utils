@@ -10,6 +10,7 @@ A util crate for holochain-rsm
 | v0.0.108 | v0.0.108 |
 | v0.0.109 | v0.0.109 |
 | v0.0.110 | v0.0.110 |
+| v0.0.111 | v0.0.111 |
 
 ## License
 

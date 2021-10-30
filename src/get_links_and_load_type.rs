@@ -7,7 +7,7 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
     base: EntryHash,
     tag: Option<LinkTag>,
 ) -> UtilsResult<Vec<R>> {
-    let link_info = get_links(base.into(), tag)?.into_inner();
+    let link_info = get_links(base.into(), tag)?;
 
     Ok(link_info
         .iter()
