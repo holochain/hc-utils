@@ -13,6 +13,8 @@
 
 publish:
 	cd ./crates/hc-utils && cargo publish
+	git tag $(shell jq .hdk ./version-manager.json)
+	git push origin $(shell jq .hdk ./version-manager.json)
 
 update:
 	echo '⚙️  Updating hdk crate...'
