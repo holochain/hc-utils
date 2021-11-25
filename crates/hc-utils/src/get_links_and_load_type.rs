@@ -3,10 +3,11 @@ use crate::get_latest_entry::get_latest_entry;
 use hdk::prelude::*;
 use std::convert::TryFrom;
 
-/// Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry. 
+/// Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry.
 pub fn get_links_and_load_type<R: TryFrom<Entry>>(
     base: EntryHash,
     tag: Option<LinkTag>,
+    _include_updates: bool,
 ) -> UtilsResult<Vec<R>> {
     let link_info = get_links(base.into(), tag)?;
 
@@ -25,4 +26,14 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
         )
         .filter_map(Result::ok)
         .collect())
+}
+
+#[macro_export]
+macro_rules! get_links_and_load_type {
+    ($a: expr, $b: expr) => {
+        get_links_and_load_type($a, $b, true)
+    };
+    ($a: expr, $b: expr, $c: expr) => {
+        get_links_and_load_type($a, $b, $c)
+    };
 }
