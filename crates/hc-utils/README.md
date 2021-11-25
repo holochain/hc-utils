@@ -30,9 +30,14 @@ A util crate for holochain-rsm
 
     gets latest link created to the specific base
 
-### get_links_and_load_type
+### get_links_and_load_type!
 
     Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry.
+    **Macros:**
+    - `get_links_and_load_type!(base, tag)`
+       - `include_latest_updated_entry = true` is used when an entry is updated in the zome and if you need the latest update of those entries
+    - `get_links_and_load_type!(base, tag, false)`
+        - `include_latest_updated_entry = false` is used when an entry does not have updates.
 
 ### local_source_chain
 
