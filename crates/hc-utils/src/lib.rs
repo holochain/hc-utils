@@ -9,6 +9,7 @@ pub mod exists;
 pub use exists::exists;
 pub mod get_header;
 pub use get_header::get_header;
+pub mod get;
 pub mod get_details;
 pub mod get_latest_entry;
 pub use get_latest_entry::get_latest_entries;

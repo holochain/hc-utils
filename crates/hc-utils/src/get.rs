@@ -2,18 +2,18 @@ use crate::error::*;
 use hdk::prelude::*;
 use link::Link;
 
-/// optimized get details by links
-pub fn get_details(links: Vec<Link>, option: GetOptions) -> UtilsResult<Vec<Option<Details>>> {
+/// optimized get by links
+pub fn get(links: Vec<Link>, option: GetOptions) -> UtilsResult<Vec<Option<Element>>> {
     let msg_results_input: Vec<GetInput> = links
         .into_iter()
         .map(|link| GetInput::new(link.target.into(), option.clone()))
         .collect();
-    Ok(HDK.with(|hdk| hdk.borrow().get_details(msg_results_input))?)
+    Ok(HDK.with(|hdk| hdk.borrow().get(msg_results_input))?)
 }
 
 #[macro_export]
-macro_rules! get_details {
+macro_rules! get {
     ($a: expr, $b: expr) => {
-        super::get_details::get_details($a, $b)
+        super::get::get($a, $b)
     };
 }
