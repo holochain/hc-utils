@@ -3,6 +3,7 @@ use hdk::prelude::*;
 
 /// Query for an existing Link in the local source-chain matching the given LinkType name(s).  
 /// If one exists, return it Address, otherwise commit it.
+#[deprecated(note = "Switch to using the macro create_idempotent_link!() instead")]
 pub fn create_idempotent_link(
     base: EntryHash,
     target: EntryHash,
@@ -24,4 +25,11 @@ pub fn create_idempotent_link(
     }
     let header = create_link(base, target.into(), link_tag)?;
     Ok(header)
+}
+
+#[macro_export]
+macro_rules! create_idempotent_link {
+    ($a: expr, $b: expr) => {
+        super::create_idempotent_link::create_idempotent_link($a, $b)
+    };
 }

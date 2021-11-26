@@ -4,6 +4,8 @@ A util crate for holochain-rsm
 
 > Note: Currently the hc-utils crate will always follow the version of hdk, when hdk version is 1.2.1, hc_utils version will be v1.2.1
 
+> Note: all the functions are converted to macros
+
 ### commit_idempotent
 
     Query for an existing Entry in the local source-chain matching the given EntryType name(s). If one exists, return it Address, otherwise commit it.

@@ -1,6 +1,5 @@
 use super::error::*;
 use hdk::prelude::*;
-use metadata::EntryDetails;
 
 enum Latest {
     Found(Entry),
@@ -15,6 +14,7 @@ enum Latest {
 /// perspective of *this* Agent.  It also may be committed by the same Agent multiple times, this
 /// algorithm depends on either making the Entry unique, *or* that the caller is OK with it
 /// returning the latest Update by any of this Agent's commits of this identical Entry.
+#[deprecated(note = "Switch to using the macro get_latest_entry!() instead")]
 pub fn get_latest_entry(target: EntryHash, option: GetOptions) -> UtilsResult<Entry> {
     // Get the original
     let mut latest_details = _helper_get_latest_entry(target, option.clone())?;
@@ -98,4 +98,18 @@ fn check_updates(details: Option<Details>) -> UtilsResult<Latest> {
         }
         _ => Ok(Latest::NoEntry),
     }
+}
+
+#[macro_export]
+macro_rules! get_latest_entries {
+    ($a: expr, $b: expr) => {
+        super::get_latest_entry::get_latest_entries($a, $b)
+    };
+}
+
+#[macro_export]
+macro_rules! get_latest_entry {
+    ($a: expr, $b: expr) => {
+        super::get_latest_entry::get_latest_entry($a, $b)
+    };
 }
