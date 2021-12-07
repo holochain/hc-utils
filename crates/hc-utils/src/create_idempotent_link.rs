@@ -3,7 +3,6 @@ use hdk::prelude::*;
 
 /// Query for an existing Link in the local source-chain matching the given LinkType name(s).  
 /// If one exists, return it Address, otherwise commit it.
-#[deprecated(note = "Switch to using the macro create_idempotent_link!() instead")]
 pub fn create_idempotent_link(
     base: EntryHash,
     target: EntryHash,

@@ -2,7 +2,6 @@ use crate::error::*;
 use hdk::prelude::*;
 
 // gets latest link created to the specific base
-#[deprecated(note = "Switch to using the macro get_latest_link!() instead")]
 pub fn get_latest_link(base: EntryHash, tag: Option<LinkTag>) -> UtilsResult<Option<Link>> {
     let profile_info = get_links(base.into(), tag)?;
 

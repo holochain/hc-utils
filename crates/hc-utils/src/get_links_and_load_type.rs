@@ -3,7 +3,6 @@ use hdk::prelude::*;
 use std::convert::TryFrom;
 
 /// Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry.
-#[deprecated(note = "Switch to using the macro get_links_and_load_type!() instead")]
 pub fn get_links_and_load_type<R: TryFrom<Entry>>(
     base: EntryHash,
     tag: Option<LinkTag>,

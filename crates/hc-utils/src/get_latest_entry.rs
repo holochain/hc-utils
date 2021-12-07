@@ -14,7 +14,6 @@ enum Latest {
 /// perspective of *this* Agent.  It also may be committed by the same Agent multiple times, this
 /// algorithm depends on either making the Entry unique, *or* that the caller is OK with it
 /// returning the latest Update by any of this Agent's commits of this identical Entry.
-#[deprecated(note = "Switch to using the macro get_latest_entry!() instead")]
 pub fn get_latest_entry(target: EntryHash, option: GetOptions) -> UtilsResult<Entry> {
     // Get the original
     let mut latest_details = _helper_get_latest_entry(target, option.clone())?;

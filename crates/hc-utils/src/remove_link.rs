@@ -1,7 +1,6 @@
 use crate::error::*;
 use hdk::prelude::*;
 
-#[deprecated(note = "Switch to using the macro remove_link!() instead")]
 pub fn remove_link(base: EntryHash, target: EntryHash, tag: LinkTag) -> UtilsResult<HeaderHash> {
     match get_links(base, Some(tag))?
         .into_iter()

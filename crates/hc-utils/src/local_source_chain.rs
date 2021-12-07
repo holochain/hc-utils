@@ -2,7 +2,6 @@ use crate::error::*;
 use hdk::prelude::*;
 
 /// Returns a list of elements from the local source-chain
-#[deprecated(note = "Switch to using the macro local_source_chain!() instead")]
 pub fn local_source_chain() -> UtilsResult<Vec<Element>> {
     handler_local_source_chain()
 }
