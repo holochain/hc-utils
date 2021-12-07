@@ -29,7 +29,7 @@ pub fn create_idempotent_link(
 
 #[macro_export]
 macro_rules! create_idempotent_link {
-    ($a: expr, $b: expr) => {
-        super::create_idempotent_link::create_idempotent_link($a, $b)
+    ($a: expr, $b: expr, $c: expr) => {
+        super::create_idempotent_link::create_idempotent_link($a, $b, $c)
     };
 }

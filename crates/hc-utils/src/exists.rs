@@ -17,7 +17,7 @@ pub fn exists(value: Entry) -> UtilsResult<HeaderHash> {
 
 #[macro_export]
 macro_rules! exists {
-    ($a: expr, $b: expr) => {
-        super::exists::exists($a, $b)
+    ($a: expr) => {
+        super::exists::exists($a)
     };
 }

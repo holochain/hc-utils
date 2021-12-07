@@ -14,7 +14,7 @@ pub fn remove_link(base: EntryHash, target: EntryHash, tag: LinkTag) -> UtilsRes
 
 #[macro_export]
 macro_rules! remove_link {
-    ($a: expr, $b: expr) => {
-        super::remove_link::remove_link($a, $b)
+    ($a: expr, $b: expr, $c: expr) => {
+        super::remove_link::remove_link($a, $b, $c)
     };
 }

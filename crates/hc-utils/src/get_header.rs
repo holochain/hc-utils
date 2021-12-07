@@ -11,7 +11,7 @@ pub fn get_header(entry: EntryHash) -> UtilsResult<HeaderHash> {
 
 #[macro_export]
 macro_rules! get_header {
-    ($a: expr, $b: expr) => {
-        super::get_header::get_header($a, $b)
+    ($a: expr) => {
+        super::get_header::get_header($a)
     };
 }
