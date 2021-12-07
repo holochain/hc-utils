@@ -3,10 +3,6 @@ use hdk::prelude::*;
 
 /// Returns a list of elements from the local source-chain
 pub fn local_source_chain() -> UtilsResult<Vec<Element>> {
-    handler_local_source_chain()
-}
-
-pub fn handler_local_source_chain() -> UtilsResult<Vec<Element>> {
     let filter = QueryFilter::new();
     let with_entry_filter = filter.include_entries(true);
 
@@ -25,6 +21,6 @@ pub fn handler_local_source_chain() -> UtilsResult<Vec<Element>> {
 #[macro_export]
 macro_rules! local_source_chain {
     () => {
-        super::local_source_chain::handler_local_source_chain()
+        super::local_source_chain::local_source_chain()
     };
 }

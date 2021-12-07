@@ -3,16 +3,9 @@ use hdk::prelude::*;
 use std::convert::TryFrom;
 
 /// Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry.
-pub fn get_links_and_load_type<R: TryFrom<Entry>>(
-    base: EntryHash,
-    tag: Option<LinkTag>,
-) -> UtilsResult<Vec<R>> {
-    handler_get_links_and_load_type(base, tag, true)
-}
-
 /// include_latest_updated_entry is used when an entry is updated in the zome
 /// and if you need the latest update of those entries
-pub fn handler_get_links_and_load_type<R: TryFrom<Entry>>(
+pub fn get_links_and_load_type<R: TryFrom<Entry>>(
     base: EntryHash,
     tag: Option<LinkTag>,
     include_latest_updated_entry: bool,
@@ -51,9 +44,9 @@ pub fn handler_get_links_and_load_type<R: TryFrom<Entry>>(
 #[macro_export]
 macro_rules! get_links_and_load_type {
     ($a: expr, $b: expr) => {
-        handler_get_links_and_load_type($a, $b, false)
+        get_links_and_load_type($a, $b, false)
     };
     ($a: expr, $b: expr, $c: expr) => {
-        handler_get_links_and_load_type($a, $b, $c)
+        get_links_and_load_type($a, $b, $c)
     };
 }
