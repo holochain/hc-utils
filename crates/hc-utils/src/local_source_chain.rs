@@ -17,10 +17,3 @@ pub fn local_source_chain() -> UtilsResult<Vec<Element>> {
     let query_result: Vec<Element> = query(header_filter)?;
     Ok(query_result)
 }
-
-#[macro_export]
-macro_rules! local_source_chain {
-    () => {
-        super::local_source_chain::local_source_chain()
-    };
-}

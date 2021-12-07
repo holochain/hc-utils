@@ -10,10 +10,3 @@ pub fn get_details(links: Vec<Link>, option: GetOptions) -> UtilsResult<Vec<Opti
         .collect();
     Ok(HDK.with(|hdk| hdk.borrow().get_details(msg_results_input))?)
 }
-
-#[macro_export]
-macro_rules! get_details {
-    ($a: expr, $b: expr) => {
-        super::get_details::get_details($a, $b)
-    };
-}

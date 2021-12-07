@@ -44,6 +44,14 @@ A util crate for holochain-rsm
 
     String wrapper for all holo_hash types
 
+### get_details
+
+    Get details for a list of links passed using the HDK::borrow functions
+
+### get
+
+    Get element for a list of links passed using the HDK::borrow functions
+
 ## Macros:
 
 ### get_links_and_load_type!
@@ -55,23 +63,15 @@ A util crate for holochain-rsm
     - `get_links_and_load_type!(base, tag, false)`
         - `include_latest_updated_entry = false` is used when an entry does not have updates.
 
-### get_details!
-
-    Get details for a list of links passed using the HDK::borrow functions
-
-### get!
-
-    Get element for a list of links passed using the HDK::borrow functions
-
 **Map versions:**
 
 | hc-utils | hdk      |
 | -------- | -------- |
 | v0.0.107 | v0.0.107 |
-| v0.0.108 | v0.0.108 |
-| v0.0.109 | v0.0.109 |
 | v0.0.110 | v0.0.110 |
+| ... | ... |
 | v0.0.111 | v0.0.111 |
+| v0.0.115 | v0.0.115 |
 
 [![License: CAL 1.0](https://img.shields.io/badge/License-CAL%201.0-blue.svg)](https://github.com/holochain/cryptographic-autonomy-license)
 

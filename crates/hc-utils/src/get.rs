@@ -10,10 +10,3 @@ pub fn get(links: Vec<Link>, option: GetOptions) -> UtilsResult<Vec<Option<Eleme
         .collect();
     Ok(HDK.with(|hdk| hdk.borrow().get(msg_results_input))?)
 }
-
-#[macro_export]
-macro_rules! get {
-    ($a: expr, $b: expr) => {
-        super::get::get($a, $b)
-    };
-}

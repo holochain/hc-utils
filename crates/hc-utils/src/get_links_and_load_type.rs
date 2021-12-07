@@ -12,7 +12,7 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
 ) -> UtilsResult<Vec<R>> {
     let link_info = get_links(base.into(), tag)?;
     if include_latest_updated_entry {
-        let entries: Vec<Entry> = super::get_latest_entries!(link_info, GetOptions::default())?;
+        let entries: Vec<Entry> = super::get_latest_entries(link_info, GetOptions::default())?;
         Ok(entries
             .iter()
             .flat_map(|entry| match R::try_from(entry.clone()) {
@@ -23,7 +23,7 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
             })
             .collect())
     } else {
-        let all_results_elements = super::get_details!(link_info, GetOptions::default())?;
+        let all_results_elements = super::get_details(link_info, GetOptions::default())?;
         Ok(all_results_elements
             .iter()
             .flat_map(|link| match link {

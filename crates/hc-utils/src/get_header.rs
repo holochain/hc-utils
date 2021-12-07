@@ -7,10 +7,3 @@ pub fn get_header(entry: EntryHash) -> UtilsResult<HeaderHash> {
         None => Err(UtilsError::EntryNotFound),
     }
 }
-
-#[macro_export]
-macro_rules! get_header {
-    ($a: expr) => {
-        super::get_header::get_header($a)
-    };
-}

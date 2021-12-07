@@ -13,6 +13,7 @@ pub use get::get;
 pub mod get_details;
 pub use get_details::get_details;
 pub mod get_latest_entry;
+pub use get_latest_entry::get_latest_entries;
 pub use get_latest_entry::get_latest_entry;
 pub mod get_latest_link;
 pub use get_latest_link::get_latest_link;

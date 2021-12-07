@@ -21,10 +21,3 @@ pub fn get_latest_link(base: EntryHash, tag: Option<LinkTag>) -> UtilsResult<Opt
             });
     return Ok(latest_info);
 }
-
-#[macro_export]
-macro_rules! get_latest_link {
-    ($a: expr, $b: expr) => {
-        super::get_latest_link::get_latest_link($a, $b)
-    };
-}

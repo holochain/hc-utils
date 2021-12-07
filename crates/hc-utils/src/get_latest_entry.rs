@@ -36,7 +36,7 @@ pub fn get_latest_entry(target: EntryHash, option: GetOptions) -> UtilsResult<En
 
 pub fn get_latest_entries(target: Vec<Link>, option: GetOptions) -> UtilsResult<Vec<Entry>> {
     // Get the original
-    let initial_details = super::get_details!(target, option.clone())?;
+    let initial_details = super::get_details(target, option.clone())?;
     initial_details
         .into_iter()
         .map(|details| {
@@ -97,18 +97,4 @@ fn check_updates(details: Option<Details>) -> UtilsResult<Latest> {
         }
         _ => Ok(Latest::NoEntry),
     }
-}
-
-#[macro_export]
-macro_rules! get_latest_entries {
-    ($a: expr, $b: expr) => {
-        super::get_latest_entry::get_latest_entries($a, $b)
-    };
-}
-
-#[macro_export]
-macro_rules! get_latest_entry {
-    ($a: expr, $b: expr) => {
-        super::get_latest_entry::get_latest_entry($a, $b)
-    };
 }

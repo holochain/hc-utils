@@ -10,10 +10,3 @@ pub fn remove_link(base: EntryHash, target: EntryHash, tag: LinkTag) -> UtilsRes
         None => return Err(UtilsError::RemoveLinkError),
     }
 }
-
-#[macro_export]
-macro_rules! remove_link {
-    ($a: expr, $b: expr, $c: expr) => {
-        super::remove_link::remove_link($a, $b, $c)
-    };
-}
