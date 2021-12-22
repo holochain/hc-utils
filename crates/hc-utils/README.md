@@ -2,7 +2,9 @@
 
 A util crate for holochain-rsm
 
-> Note: the hc-utils crate will always follow the version of hdk, when hdk version is 1.2.1, hc_utils version will be v1.2.1
+> Note: Currently the hc-utils crate will always follow the version of hdk, when hdk version is 1.2.1, hc_utils version will be v1.2.1
+
+> Note: all the functions are converted to macros
 
 ### commit_idempotent
 
@@ -30,10 +32,6 @@ A util crate for holochain-rsm
 
     gets latest link created to the specific base
 
-### get_links_and_load_type
-
-    Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry.
-
 ### local_source_chain
 
     Returns a list of elements from the local source-chain
@@ -46,15 +44,34 @@ A util crate for holochain-rsm
 
     String wrapper for all holo_hash types
 
+### get_details
+
+    Get details for a list of links passed using the HDK::borrow functions
+
+### get
+
+    Get element for a list of links passed using the HDK::borrow functions
+
+## Macros:
+
+### get_links_and_load_type!
+
+    Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry.
+    **Macros:**
+    - `get_links_and_load_type!(base, tag)`
+       - `include_latest_updated_entry = true` is used when an entry is updated in the zome and if you need the latest update of those entries
+    - `get_links_and_load_type!(base, tag, false)`
+        - `include_latest_updated_entry = false` is used when an entry does not have updates.
+
 **Map versions:**
 
 | hc-utils | hdk      |
 | -------- | -------- |
 | v0.0.107 | v0.0.107 |
-| v0.0.108 | v0.0.108 |
-| v0.0.109 | v0.0.109 |
 | v0.0.110 | v0.0.110 |
+| ... | ... |
 | v0.0.111 | v0.0.111 |
+| v0.0.115 | v0.0.115 |
 
 [![License: CAL 1.0](https://img.shields.io/badge/License-CAL%201.0-blue.svg)](https://github.com/holochain/cryptographic-autonomy-license)
 
