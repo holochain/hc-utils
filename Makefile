@@ -12,6 +12,8 @@
 # Publishing
 
 publish:
+	git checkout -b $(shell jq .hdk ./version-manager.json)
+	git commit -a -m "version bump $(shell jq .hdk ./version-manager.json)"
 	cd ./crates/hc-utils && cargo publish
 	git tag $(shell jq .hdk ./version-manager.json)
 	git push origin $(shell jq .hdk ./version-manager.json)
