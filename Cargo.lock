@@ -137,7 +137,7 @@ checksum = "ab5ef0d4909ef3724cc8cce6ccc8572c5c817592e9285f5464f8e86f8bd3726e"
 
 [[package]]
 name = "hc_utils"
-version = "0.0.117"
+version = "0.0.118"
 dependencies = [
  "hdk",
  "holo_hash",
@@ -147,9 +147,9 @@ dependencies = [
 
 [[package]]
 name = "hdk"
-version = "0.0.117"
+version = "0.0.118"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3d9fe361b9b019057af3eb4c6e53a696fc263da1c6a6c43fa10cf94093e5d305"
+checksum = "e1ba1a9a438586f0f7334feacc2ef03471be47f78de600bf7d5fe7d01231aaa0"
 dependencies = [
  "hdk_derive",
  "holo_hash",
@@ -166,9 +166,9 @@ dependencies = [
 
 [[package]]
 name = "hdk_derive"
-version = "0.0.19"
+version = "0.0.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d74d23c7b7b5e68c1c6a8876b90fcb35712a282c262e89aef5366205fdd49c30"
+checksum = "a97ae132bc4b151655185d7611d37ce042301880fb1848ea7e9721bdd36d40cb"
 dependencies = [
  "holochain_zome_types",
  "paste",
@@ -179,9 +179,9 @@ dependencies = [
 
 [[package]]
 name = "holo_hash"
-version = "0.0.14"
+version = "0.0.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3b1d64f9068ec474f864950184161e5eb587327f36f1ceb57257d38eb2ebbe27"
+checksum = "5397a0aa6c6cac2846b26baf1b705b6add5713268a89e4377d55d577f88368f6"
 dependencies = [
  "base64",
  "blake2b_simd",
@@ -245,9 +245,9 @@ dependencies = [
 
 [[package]]
 name = "holochain_zome_types"
-version = "0.0.19"
+version = "0.0.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b49fb2904c8f5b681c96bd361f658f316d4f9f7e3daf962dc3f8b8ea936acc5d"
+checksum = "08ade77e6cf5a17261a4a46ea583813701c9e917ef23962434a0a26512a27cc6"
 dependencies = [
  "chrono",
  "holo_hash",
@@ -264,9 +264,9 @@ dependencies = [
 
 [[package]]
 name = "indexmap"
-version = "1.7.0"
+version = "1.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bc633605454125dec4b66843673f01c7df2b89479b32e0ed634e43a91cff62a5"
+checksum = "282a6247722caba404c065016bbfa522806e51714c34f5dfc3e4a3a46fcb4223"
 dependencies = [
  "autocfg",
  "hashbrown",
@@ -421,24 +421,24 @@ checksum = "acbf547ad0c65e31259204bd90935776d1c693cec2f4ff7abb7a1bbbd40dfe58"
 
 [[package]]
 name = "pin-project-lite"
-version = "0.2.7"
+version = "0.2.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8d31d11c69a6b52a174b42bdc0c30e5e11670f90788b2c471c31c1d17d449443"
+checksum = "e280fbe77cc62c91527259e9442153f4688736748d24660126286329742b4c6c"
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.34"
+version = "1.0.36"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2f84e92c0f7c9d58328b85a78557813e4bd845130db68d7184635344399423b1"
+checksum = "c7342d5883fbccae1cc37a2353b09c87c9b0f3afd73f5fb9bba687a1f733b029"
 dependencies = [
  "unicode-xid",
 ]
 
 [[package]]
 name = "quote"
-version = "1.0.10"
+version = "1.0.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "38bc8cc6a5f2e3655e0899c1b848643b2562f853f114bfec7be120678e3ace05"
+checksum = "47aa80447ce4daf1717500037052af176af5d38cc3e571d9ec1c7353fc10c87d"
 dependencies = [
  "proc-macro2",
 ]
@@ -564,9 +564,9 @@ dependencies = [
 
 [[package]]
 name = "serde_json"
-version = "1.0.73"
+version = "1.0.74"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bcbd0344bc6533bc7ec56df11d42fb70f1b912351c0825ccb7211b59d8af7cf5"
+checksum = "ee2bb9cd061c5865d345bb02ca49fcef1391741b672b54a0bf7b679badec3142"
 dependencies = [
  "indexmap",
  "itoa",
@@ -597,9 +597,9 @@ checksum = "6bdef32e8150c2a081110b42772ffe7d7c9032b606bc226c8260fd97e0976601"
 
 [[package]]
 name = "syn"
-version = "1.0.83"
+version = "1.0.85"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "23a1dfb999630e338648c83e91c59a4e9fb7620f520c3194b6b89e276f2f1959"
+checksum = "a684ac3dcd8913827e18cd09a68384ee66c1de24157e3c556c9ab16d85695fb7"
 dependencies = [
  "proc-macro2",
  "quote",
