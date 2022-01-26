@@ -12,9 +12,11 @@
 # Publishing
 
 publish:
+	git checkout -b v$(shell jq .hdk ./version-manager.json)
+	git commit -a -m "version bump $(shell jq .hdk ./version-manager.json)"
 	cd ./crates/hc-utils && cargo publish
 	git tag $(shell jq .hdk ./version-manager.json)
-	git push origin $(shell jq .hdk ./version-manager.json)
+	git push origin v$(shell jq .hdk ./version-manager.json)
 
 update:
 	echo '⚙️  Updating hdk crate...'
