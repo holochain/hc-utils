@@ -27,3 +27,4 @@ update:
 	cargo update; cargo build
 	echo '⚙️  Version bump of hc_utils crate...'
 	cargo set-version $(shell jq .hdk ./version-manager.json) --workspace
+	cargo update
