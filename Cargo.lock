@@ -129,7 +129,7 @@ checksum = "ab5ef0d4909ef3724cc8cce6ccc8572c5c817592e9285f5464f8e86f8bd3726e"
 
 [[package]]
 name = "hc_utils"
-version = "0.0.125"
+version = "0.0.126"
 dependencies = [
  "hdk",
  "holo_hash",
@@ -139,9 +139,9 @@ dependencies = [
 
 [[package]]
 name = "hdk"
-version = "0.0.125"
+version = "0.0.126"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3c85602b02359333cfaf5bda3c02a50966946b81cabfabb8d7229b115c1c6d3a"
+checksum = "ce6358e3e776e378ca08e6078875db7400fbb3116f5551b5ba1283816c744656"
 dependencies = [
  "hdk_derive",
  "holo_hash",
