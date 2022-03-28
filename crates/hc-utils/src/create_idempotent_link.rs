@@ -6,6 +6,7 @@ use hdk::prelude::*;
 pub fn create_idempotent_link(
     base: EntryHash,
     target: EntryHash,
+    link_type: LinkType,
     link_tag: LinkTag,
 ) -> UtilsResult<HeaderHash> {
     let list_of_links = query(ChainQueryFilter::new().header_type(HeaderType::CreateLink))?;
@@ -22,6 +23,6 @@ pub fn create_idempotent_link(
             _ => unreachable!(),
         };
     }
-    let header = create_link(base, target.into(), link_tag)?;
+    let header = create_link(base, target.into(), link_type, link_tag)?;
     Ok(header)
 }
