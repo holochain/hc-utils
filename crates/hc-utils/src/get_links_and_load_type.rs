@@ -10,7 +10,7 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
     tag: Option<LinkTag>,
     include_latest_updated_entry: bool,
 ) -> UtilsResult<Vec<R>> {
-    let link_info = get_links(base.into(), tag)?;
+    let link_info = get_links(base, tag)?;
     if include_latest_updated_entry {
         let entries: Vec<Entry> = super::get_latest_entries(link_info, GetOptions::default())?;
         Ok(entries

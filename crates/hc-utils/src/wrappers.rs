@@ -1,4 +1,4 @@
-use ::holo_hash::DnaHash;
+use hdk::prelude::holo_hash::DnaHash;
 use hdk::prelude::*;
 
 #[derive(Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
