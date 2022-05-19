@@ -24,11 +24,11 @@ pub use remove_link::remove_link;
 pub mod local_source_chain;
 pub use local_source_chain::local_source_chain;
 
-pub mod wrappers;
-pub use wrappers::WrappedAgentPubKey;
-pub use wrappers::WrappedDnaHash;
-pub use wrappers::WrappedEntryHash;
-pub use wrappers::WrappedHeaderHash;
+// pub mod wrappers;
+// pub use wrappers::WrappedAgentPubKey;
+// pub use wrappers::WrappedDnaHash;
+// pub use wrappers::WrappedEntryHash;
+// pub use wrappers::WrappedHeaderHash;
 
 pub mod error;
 pub use error::{UtilsError, UtilsResult};
