@@ -1,5 +1,7 @@
 # hc-utils
 
+> this is just a testing
+
 A util crate for holochain-rsm
 
 > Note: Currently the hc-utils crate will always follow the version of hdk, when hdk version is 1.2.1, hc_utils version will be v1.2.1
@@ -69,7 +71,7 @@ A util crate for holochain-rsm
 | -------- | -------- |
 | v0.0.107 | v0.0.107 |
 | v0.0.110 | v0.0.110 |
-| ... | ... |
+| ...      | ...      |
 | v0.0.111 | v0.0.111 |
 | v0.0.115 | v0.0.115 |
 
