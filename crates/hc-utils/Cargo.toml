@@ -12,7 +12,7 @@ edition = "2021"
 
 [dependencies]
 serde = "1.0"
-hdk = { git = "https://github.com/holochain/holochain.git", rev = "90603474dbab05be5bf60fc66a8210725d462d0a" }
+hdk = { git = "https://github.com/holochain/holochain.git", rev = "7d5a80d0676e3a848952b9a3089c81a633739ca2" }
 thiserror = "1.0"
 
 [lib]
