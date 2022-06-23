@@ -77,9 +77,9 @@ fn check_updates(details: Option<Details>) -> UtilsResult<Latest> {
                     .into_iter()
                     .fold(
                         None,
-                        |latest: Option<element::SignedHeaderHashed>, update| match latest {
+                        |latest: Option<record::SignedActionHashed>, update| match latest {
                             Some(latest) => {
-                                if update.header().timestamp() > latest.header().timestamp() {
+                                if update.action().timestamp() > latest.action().timestamp() {
                                     Some(update)
                                 } else {
                                     Some(latest)
@@ -89,7 +89,7 @@ fn check_updates(details: Option<Details>) -> UtilsResult<Latest> {
                         },
                     )
                     .expect("Updates are not empty");
-                match latest_entry.header().entry_hash() {
+                match latest_entry.action().entry_hash() {
                     Some(header) => Ok(Latest::Continue(header.clone())),
                     None => unreachable!(),
                 }

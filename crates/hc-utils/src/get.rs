@@ -3,7 +3,7 @@ use hdk::prelude::*;
 use link::Link;
 
 /// optimized get by links
-pub fn get(links: Vec<Link>, option: GetOptions) -> UtilsResult<Vec<Option<Element>>> {
+pub fn get(links: Vec<Link>, option: GetOptions) -> UtilsResult<Vec<Option<Record>>> {
     let msg_results_input: Vec<GetInput> = links
         .into_iter()
         .map(|link| GetInput::new(link.target.into(), option.clone()))

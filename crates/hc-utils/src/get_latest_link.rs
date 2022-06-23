@@ -1,9 +1,10 @@
 use crate::error::*;
 use hdk::prelude::*;
+use holochain_deterministic_integrity::prelude::link::LinkTypeRange;
 
 // gets latest link created to the specific base
 pub fn get_latest_link(base: EntryHash, tag: Option<LinkTag>) -> UtilsResult<Option<Link>> {
-    let profile_info = get_links(base, tag)?;
+    let profile_info = get_links(base, LinkTypeRange::Full, tag)?;
 
     // Find the latest
     let latest_info =
