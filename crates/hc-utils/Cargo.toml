@@ -1,6 +1,6 @@
 [package]
 name = "hc_utils"
-version = "0.0.136"
+version = "0.0.138"
 description = "Helper functions for holochain hdk development"
 homepage = "https://github.com/holochain/hc-utils"
 license = "Apache-2.0"
@@ -12,7 +12,8 @@ edition = "2021"
 
 [dependencies]
 serde = "1.0"
-hdk = { version = "=0.0.136", features = ["encoding"] }
+holochain_deterministic_integrity = "0.0.10"
+hdk = { version = "=0.0.138", features = ["encoding"] }
 thiserror = "1.0"
 
 [lib]

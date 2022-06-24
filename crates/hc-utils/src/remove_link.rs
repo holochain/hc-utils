@@ -1,9 +1,9 @@
 use crate::error::*;
 use hdk::prelude::*;
 
-pub fn remove_link(base: EntryHash, target: EntryHash, tag: LinkTag) -> UtilsResult<HeaderHash> {
+pub fn remove_link(base: EntryHash, target: EntryHash, tag: LinkTag) -> UtilsResult<ActionHash> {
     let target = AnyLinkableHash::from(target);
-    match get_links(base, Some(tag))?
+    match get_links(base, .., Some(tag))?
         .into_iter()
         .find(|link| target == link.target)
     {

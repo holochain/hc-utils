@@ -12,7 +12,7 @@ pub struct WrappedAgentPubKey(pub AgentPubKey);
 #[derive(Hash, Eq, Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 #[serde(try_from = "HashString")]
 #[serde(into = "HashString")]
-pub struct WrappedHeaderHash(pub HeaderHash);
+pub struct WrappedActionHash(pub ActionHash);
 
 #[derive(Hash, Eq, Debug, Serialize, Deserialize, SerializedBytes, Clone, PartialEq)]
 #[serde(try_from = "HashString")]
@@ -46,18 +46,18 @@ impl From<WrappedAgentPubKey> for HashString {
     }
 }
 
-impl TryFrom<HashString> for WrappedHeaderHash {
+impl TryFrom<HashString> for WrappedActionHash {
     type Error = String;
     fn try_from(ui_string_hash: HashString) -> Result<Self, Self::Error> {
-        match HeaderHash::try_from(ui_string_hash.0) {
+        match ActionHash::try_from(ui_string_hash.0) {
             Ok(address) => Ok(Self(address)),
             Err(e) => Err(format!("what is this error {:?}", e)),
         }
     }
 }
-impl From<WrappedHeaderHash> for HashString {
-    fn from(wrapped_header_hash: WrappedHeaderHash) -> Self {
-        Self(wrapped_header_hash.0.to_string())
+impl From<WrappedActionHash> for HashString {
+    fn from(wrapped_action_hash: WrappedActionHash) -> Self {
+        Self(wrapped_action_hash.0.to_string())
     }
 }
 

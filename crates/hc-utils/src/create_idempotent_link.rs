@@ -8,17 +8,17 @@ pub fn create_idempotent_link(
     target: EntryHash,
     link_type: LinkType,
     link_tag: LinkTag,
-) -> UtilsResult<HeaderHash> {
-    let list_of_links = query(ChainQueryFilter::new().header_type(HeaderType::CreateLink))?;
+) -> UtilsResult<ActionHash> {
+    let list_of_links = query(ChainQueryFilter::new().action_type(ActionType::CreateLink))?;
     let base = base.into();
-    for element in list_of_links {
-        match element.header() {
-            Header::CreateLink(c) => {
+    for record in list_of_links {
+        match record.action() {
+            Action::CreateLink(c) => {
                 if c.base_address == base
                     && c.target_address == target.clone().into()
                     && c.tag == link_tag
                 {
-                    return Ok(element.header_address().to_owned());
+                    return Ok(record.action_address().to_owned());
                 }
             }
             _ => unreachable!(),
