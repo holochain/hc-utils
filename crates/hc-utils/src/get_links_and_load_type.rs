@@ -1,6 +1,5 @@
 use crate::error::*;
 use hdk::prelude::*;
-use holochain_deterministic_integrity::prelude::link::LinkTypeRange;
 use std::convert::TryFrom;
 
 /// Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry.
@@ -11,7 +10,7 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
     tag: Option<LinkTag>,
     include_latest_updated_entry: bool,
 ) -> UtilsResult<Vec<R>> {
-    let link_info = get_links(base, LinkTypeRange::Full, tag)?;
+    let link_info = get_links(base, .., tag)?;
     if include_latest_updated_entry {
         let entries: Vec<Entry> = super::get_latest_entries(link_info, GetOptions::default())?;
         Ok(entries
