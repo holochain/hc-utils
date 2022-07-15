@@ -8,9 +8,9 @@ enum Latest {
 }
 
 /// Obtains the updates for the target Entry, and examines all of them to selects the latest one by
-/// looking at the update time in its header.
+/// looking at the update time in its action.
 ///
-/// An identical Entry can be committed by multiple Agents; this obtains the Entry's Header from the
+/// An identical Entry can be committed by multiple Agents; this obtains the Entry's Action from the
 /// perspective of *this* Agent.  It also may be committed by the same Agent multiple times, this
 /// algorithm depends on either making the Entry unique, *or* that the caller is OK with it
 /// returning the latest Update by any of this Agent's commits of this identical Entry.
@@ -90,7 +90,7 @@ fn check_updates(details: Option<Details>) -> UtilsResult<Latest> {
                     )
                     .expect("Updates are not empty");
                 match latest_entry.action().entry_hash() {
-                    Some(header) => Ok(Latest::Continue(header.clone())),
+                    Some(action) => Ok(Latest::Continue(action.clone())),
                     None => unreachable!(),
                 }
             }

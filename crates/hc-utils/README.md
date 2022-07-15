@@ -18,15 +18,15 @@ A util crate for holochain-rsm
 
     Query for an existing Entry in the local source-chain matching the given EntryType name(s).  If one exists, return it Address, otherwise returns error
 
-### get_header
+### get_action
 
-    Gets header of and Entry
+    Gets the action of and Entry
 
 ### get_latest_entry
 
-    Obtains the updates for the target Entry, and examines all of them to selects the latest one by looking at the update time in its header.
+    Obtains the updates for the target Entry, and examines all of them to selects the latest one by looking at the update time in its action.
 
-    An identical Entry can be committed by multiple Agents; this obtains the Entry's Header from the perspective of _this_ Agent. It also may be committed by the same Agent multiple times, this algorithm depends on either making the Entry unique, _or_ that the caller is OK with it returning the latest Update by any of this Agent's commits of this identical Entry.
+    An identical Entry can be committed by multiple Agents; this obtains the Entry's Action from the perspective of _this_ Agent. It also may be committed by the same Agent multiple times, this algorithm depends on either making the Entry unique, _or_ that the caller is OK with it returning the latest Update by any of this Agent's commits of this identical Entry.
 
 ### get_latest_link
 
@@ -34,7 +34,7 @@ A util crate for holochain-rsm
 
 ### local_source_chain
 
-    Returns a list of elements from the local source-chain
+    Returns a list of records from the local source-chain
 
 ### remove_link
 
@@ -50,7 +50,7 @@ A util crate for holochain-rsm
 
 ### get
 
-    Get element for a list of links passed using the HDK::borrow functions
+    Get record for a list of links passed using the HDK::borrow functions
 
 ## Macros:
 

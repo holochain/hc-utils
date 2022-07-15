@@ -24,6 +24,6 @@ pub fn create_idempotent_link(
             _ => unreachable!(),
         };
     }
-    let header = create_link(base, target, link_type, link_tag)?;
-    Ok(header)
+    let action = create_link(base, target, link_type, link_tag)?;
+    Ok(action)
 }
