@@ -20,7 +20,7 @@ A util crate for holochain-rsm
 
 ### get_action
 
-    Gets the action of and Entry
+    Gets the action of an Entry
 
 ### get_latest_entry
 
@@ -34,7 +34,7 @@ A util crate for holochain-rsm
 
 ### local_source_chain
 
-    Returns a list of records from the local source-chain
+    Returns a list of elements from the local source-chain
 
 ### remove_link
 
@@ -50,7 +50,7 @@ A util crate for holochain-rsm
 
 ### get
 
-    Get record for a list of links passed using the HDK::borrow functions
+    Get element for a list of links passed using the HDK::borrow functions
 
 ## Macros:
 
