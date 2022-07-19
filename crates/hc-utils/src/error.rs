@@ -10,10 +10,10 @@ pub enum UtilsError {
     Wasm(#[from] WasmError),
     #[error("Agent has not created a profile yet")]
     AgentNotRegisteredProfile,
-    // #[error("Header that was just committed is missing. This means something went really wrong")]
-    // MissingLocalHeader,
-    // #[error("Tried to use a header without an entry as for where it only makes sense to use a new entry header")]
-    // WrongHeaderType,
+    // #[error("Action that was just committed is missing. This means something went really wrong")]
+    // MissingLocalAction,
+    // #[error("Tried to use a action without an entry as for where it only makes sense to use a new entry action")]
+    // WrongActionType,
     // #[error("Channel has been deleted too bad")]
     // ChannelDeleted,
     #[error("Unable to find entry in dht")]
