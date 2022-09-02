@@ -20,7 +20,7 @@ publish:
 
 update:
 	echo '⚙️  Updating hdk crate...'
-	cargo upgrade hdk@=$(shell jq .hdk ./version-manager.json) --workspace
+	cargo upgrade hdk@=$(shell jq .hdk ./version-manager.json) --workspace --pinned
 	echo '⚙️  Build...'
 	cargo update; cargo build
 	echo '⚙️  Version bump of hc_utils crate...'
