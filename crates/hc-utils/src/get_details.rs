@@ -1,9 +1,8 @@
-use crate::error::*;
 use hdk::prelude::*;
 use link::Link;
 
 /// optimized get details by links
-pub fn get_details(links: Vec<Link>, option: GetOptions) -> UtilsResult<Vec<Option<Details>>> {
+pub fn get_details(links: Vec<Link>, option: GetOptions) -> ExternResult<Vec<Option<Details>>> {
     let links: Vec<AnyDhtHash> = links
         .iter()
         .filter_map(|l| match l.clone().target.into_entry_hash() {

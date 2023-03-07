@@ -1,8 +1,7 @@
-use crate::error::*;
 use hdk::prelude::*;
 
 /// Returns a list of records from the local source-chain
-pub fn local_source_chain() -> UtilsResult<Vec<Record>> {
+pub fn local_source_chain() -> ExternResult<Vec<Record>> {
     let filter = QueryFilter::new();
     let with_entry_filter = filter.include_entries(true);
 

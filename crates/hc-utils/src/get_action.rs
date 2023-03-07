@@ -1,9 +1,10 @@
-use crate::error::*;
 use hdk::prelude::*;
 
-pub fn get_action(entry: EntryHash) -> UtilsResult<ActionHash> {
+pub fn get_action(entry: EntryHash) -> ExternResult<ActionHash> {
     match get(entry, Default::default())? {
         Some(record) => Ok(record.action_address().to_owned()),
-        None => Err(UtilsError::EntryNotFound),
+        None => Err(wasm_error!(WasmErrorInner::Guest(
+            "Unable to find entry in dht".to_string()
+        ))),
     }
 }

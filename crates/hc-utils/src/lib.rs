@@ -1,4 +1,4 @@
-//! holochain-rsm utils
+//! holochain utils
 //!
 pub mod commit_idempotent;
 pub use commit_idempotent::commit_idempotent;
@@ -29,6 +29,3 @@ pub use wrappers::WrappedActionHash;
 pub use wrappers::WrappedAgentPubKey;
 pub use wrappers::WrappedDnaHash;
 pub use wrappers::WrappedEntryHash;
-
-pub mod error;
-pub use error::{UtilsError, UtilsResult};

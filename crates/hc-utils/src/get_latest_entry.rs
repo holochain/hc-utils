@@ -1,4 +1,3 @@
-use super::error::*;
 use hdk::prelude::*;
 
 enum Latest {
@@ -14,7 +13,7 @@ enum Latest {
 /// perspective of *this* Agent.  It also may be committed by the same Agent multiple times, this
 /// algorithm depends on either making the Entry unique, *or* that the caller is OK with it
 /// returning the latest Update by any of this Agent's commits of this identical Entry.
-pub fn get_latest_entry(target: EntryHash, option: GetOptions) -> UtilsResult<Entry> {
+pub fn get_latest_entry(target: EntryHash, option: GetOptions) -> ExternResult<Entry> {
     // Get the original
     let mut latest_details = _helper_get_latest_entry(target, option.clone())?;
 
@@ -29,12 +28,16 @@ pub fn get_latest_entry(target: EntryHash, option: GetOptions) -> UtilsResult<En
                 latest_details = _helper_get_latest_entry(entry_hash, option.clone())?
             }
             // There was no original so return the default
-            Latest::NoEntry => return Err(UtilsError::EntryNotFound),
+            Latest::NoEntry => {
+                return Err(wasm_error!(WasmErrorInner::Guest(
+                    "Unable to find entry in dht".to_string()
+                )))
+            }
         }
     }
 }
 
-pub fn get_latest_entries(target: Vec<Link>, option: GetOptions) -> UtilsResult<Vec<Entry>> {
+pub fn get_latest_entries(target: Vec<Link>, option: GetOptions) -> ExternResult<Vec<Entry>> {
     // Get the original
     let initial_details = super::get_details(target, option.clone())?;
     initial_details
@@ -52,20 +55,24 @@ pub fn get_latest_entries(target: Vec<Link>, option: GetOptions) -> UtilsResult<
                         latest_details = _helper_get_latest_entry(entry_hash, option.clone())?
                     }
                     // There was no original so return the default
-                    Latest::NoEntry => return Err(UtilsError::EntryNotFound),
+                    Latest::NoEntry => {
+                        return Err(wasm_error!(WasmErrorInner::Guest(
+                            "Unable to find entry in dht".to_string()
+                        )))
+                    }
                 }
             }
         })
         .collect()
 }
 
-fn _helper_get_latest_entry(target: EntryHash, option: GetOptions) -> UtilsResult<Latest> {
+fn _helper_get_latest_entry(target: EntryHash, option: GetOptions) -> ExternResult<Latest> {
     let details = get_details(target, option.clone())?;
     check_updates(details)
 }
 
 // Get the actual profile entry
-fn check_updates(details: Option<Details>) -> UtilsResult<Latest> {
+fn check_updates(details: Option<Details>) -> ExternResult<Latest> {
     match details {
         Some(Details::Entry(EntryDetails { entry, updates, .. })) => {
             // No updates, we are done

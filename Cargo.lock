@@ -637,7 +637,7 @@ dependencies = [
 
 [[package]]
 name = "hc_utils"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "hdk",
  "serde",
@@ -646,9 +646,9 @@ dependencies = [
 
 [[package]]
 name = "hdi"
-version = "0.2.0"
+version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "344ddd3db53dec1352aca06ca5048d305a2c20149cf3117e9669ac567e71c109"
+checksum = "8046116c32434837d28ad1b443802e2444a38d8cdb69caca9169414364fe0b69"
 dependencies = [
  "hdk_derive",
  "holo_hash",
@@ -663,9 +663,9 @@ dependencies = [
 
 [[package]]
 name = "hdk"
-version = "0.1.0"
+version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ab34bc763d15b2d91d26008487b189547da9c184b5bcd448242ac255f483443e"
+checksum = "0cbecb374a53eba516cbfefaad21f4bc805f4c731b81bd800a9a9e0239004eb3"
 dependencies = [
  "getrandom",
  "hdi",

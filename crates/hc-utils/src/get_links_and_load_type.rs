@@ -1,6 +1,5 @@
-use crate::error::*;
-use hdk::prelude::*;
 use hdk::link::LinkTypeFilterExt;
+use hdk::prelude::*;
 use std::convert::TryFrom;
 
 /// Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry.
@@ -11,7 +10,7 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
     link_type: impl LinkTypeFilterExt,
     tag: Option<LinkTag>,
     include_latest_updated_entry: bool,
-) -> UtilsResult<Vec<R>> {
+) -> ExternResult<Vec<R>> {
     let link_info = get_links(base, link_type, tag)?;
     if include_latest_updated_entry {
         let entries: Vec<Entry> = super::get_latest_entries(link_info, GetOptions::default())?;
@@ -19,8 +18,8 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
             .iter()
             .flat_map(|entry| match R::try_from(entry.clone()) {
                 Ok(e) => Ok(e),
-                Err(_) => Err(UtilsError::Generic(
-                    "Could not convert get_links result to requested type",
+                Err(_) => Err(wasm_error!(
+                    "Could not convert get_links result to requested type"
                 )),
             })
             .collect())
@@ -32,12 +31,12 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
                 Some(Details::Entry(EntryDetails { entry, .. })) => {
                     match R::try_from(entry.clone()) {
                         Ok(e) => Ok(e),
-                        Err(_) => Err(UtilsError::Generic(
-                            "Could not convert get_links result to requested type",
+                        Err(_) => Err(wasm_error!(
+                            "Could not convert get_links result to requested type"
                         )),
                     }
                 }
-                _ => Err(UtilsError::Generic("get_links did not return an app entry")),
+                _ => Err(wasm_error!("get_links did not return an app entry")),
             })
             .collect())
     }
