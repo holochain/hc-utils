@@ -19,6 +19,8 @@ pub mod get_latest_link;
 pub use get_latest_link::get_latest_link;
 pub mod get_links_and_load_type;
 pub use get_links_and_load_type::get_links_and_load_type;
+pub mod get_latest_linked_action;
+pub use get_latest_linked_action::get_latest_linked_action;
 pub mod remove_link;
 pub use remove_link::remove_link;
 pub mod local_source_chain;

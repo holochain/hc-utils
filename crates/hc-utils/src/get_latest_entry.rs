@@ -74,9 +74,16 @@ fn _helper_get_latest_entry(target: EntryHash, option: GetOptions) -> ExternResu
 // Get the actual profile entry
 fn check_updates(details: Option<Details>) -> ExternResult<Latest> {
     match details {
-        Some(Details::Entry(EntryDetails { entry, updates, .. })) => {
+        Some(Details::Entry(EntryDetails {
+            entry,
+            updates,
+            deletes,
+            ..
+        })) => {
             // No updates, we are done
-            if updates.is_empty() {
+            if deletes.len() > 0 {
+                Ok(Latest::NoEntry)
+            } else if updates.is_empty() {
                 Ok(Latest::Found(entry))
             } else {
                 // Get the latest update via timestamp
