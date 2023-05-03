@@ -17,7 +17,7 @@ publish:
 	cd ./crates/hc-utils && cargo publish
 	git tag $(shell jq .hdk ./version-manager.json)
 	git push origin v$(shell jq .hdk ./version-manager.json)
-
+	git push origin refs/tags/$(shell jq .hdk ./version-manager.json)
 update:
 	echo '⚙️  Updating hdk crate...'
 	cargo upgrade hdk@=$(shell jq .hdk ./version-manager.json) --workspace --pinned
