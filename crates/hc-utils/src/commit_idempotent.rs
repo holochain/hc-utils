@@ -4,7 +4,7 @@ use hdk::prelude::*;
 /// one exists, return it Address, otherwise commit it.
 pub fn commit_idempotent(value: CreateInput) -> ExternResult<ActionHash> {
     for record in super::local_source_chain()? {
-        if let record::RecordEntry::Present(entry) = record.entry() {
+        if let RecordEntry::Present(entry) = record.entry() {
             if entry.clone() == value.entry {
                 return Ok(record.action_address().clone());
             }

@@ -1,5 +1,4 @@
 use hdk::prelude::*;
-use link::Link;
 
 /// optimized get details by links
 pub fn get_details(links: Vec<Link>, option: GetOptions) -> ExternResult<Vec<Option<Details>>> {

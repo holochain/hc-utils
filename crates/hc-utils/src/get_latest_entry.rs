@@ -91,7 +91,7 @@ fn check_updates(details: Option<Details>) -> ExternResult<Latest> {
                     .into_iter()
                     .fold(
                         None,
-                        |latest: Option<record::SignedActionHashed>, update| match latest {
+                        |latest: Option<SignedActionHashed>, update| match latest {
                             Some(latest) => {
                                 if update.action().timestamp() > latest.action().timestamp() {
                                     Some(update)
