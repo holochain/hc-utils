@@ -20,7 +20,7 @@ publish:
 	git push origin refs/tags/$(shell jq .hdk ./version-manager.json)
 update:
 	echo '⚙️  Updating hdk crate...'
-	cargo upgrade hdk@=$(shell jq .hdk ./version-manager.json) --workspace --pinned
+	cargo upgrade -p hdk@=$(shell jq .hdk ./version-manager.json) --pinned
 	echo '⚙️  Build...'
 	cargo update; cargo build
 	echo '⚙️  Version bump of hc_utils crate...'
