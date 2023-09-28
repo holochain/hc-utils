@@ -3,7 +3,7 @@
 # █▀▄ ██▄ █▄▄ ██▄ █▀█ ▄█ ██▄
 #############################
 # requirements
-# - cargo-edit crate: `cargo install cargo-edit`
+# - cargo-edit crate: `cargo install cargo-edit` >= 0.12.2
 # - jq linux terminal tool : `sudo apt-get install jq`
 # How to make a update?
 #	- Update the version-manager.json file
