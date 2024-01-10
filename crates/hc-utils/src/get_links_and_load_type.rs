@@ -1,4 +1,3 @@
-use hdk::link::LinkTypeFilterExt;
 use hdk::prelude::*;
 use std::convert::TryFrom;
 
@@ -6,12 +5,10 @@ use std::convert::TryFrom;
 /// include_latest_updated_entry is used when an entry is updated in the zome
 /// and if you need the latest update of those entries
 pub fn get_links_and_load_type<R: TryFrom<Entry>>(
-    base: EntryHash,
-    link_type: impl LinkTypeFilterExt,
-    tag: Option<LinkTag>,
+    input: GetLinksInput,
     include_latest_updated_entry: bool,
 ) -> ExternResult<Vec<R>> {
-    let link_info = get_links(base, link_type, tag)?;
+    let link_info = get_links(input)?;
     if include_latest_updated_entry {
         let entries: Vec<Entry> = super::get_latest_entries(link_info, GetOptions::default())?;
         Ok(entries
