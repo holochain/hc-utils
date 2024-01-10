@@ -1,11 +1,7 @@
 use hdk::prelude::*;
 
-pub fn get_latest_linked_action(
-    base: impl Into<AnyLinkableHash>,
-    link_type: impl LinkTypeFilterExt,
-    link_tag: Option<LinkTag>,
-) -> ExternResult<Vec<Record>> {
-    let links = get_links(base, link_type, link_tag)?;
+pub fn get_latest_linked_action(input: GetLinksInput) -> ExternResult<Vec<Record>> {
+    let links = get_links(input)?;
 
     let records: Vec<Record> = links
         .into_iter()
