@@ -41,10 +41,10 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
 
 #[macro_export]
 macro_rules! get_links_and_load_type {
-    ($a: expr, $b: expr, $c: expr) => {
-        get_links_and_load_type($a, $b, $c, false)
+    ($a: expr) => {
+        get_links_and_load_type($a, false)
     };
-    ($a: expr, $b: expr,$c: expr, $d: expr) => {
-        get_links_and_load_type($a, $b, $c, $d)
+    ($a: expr, $b: expr) => {
+        get_links_and_load_type($a, $b)
     };
 }
