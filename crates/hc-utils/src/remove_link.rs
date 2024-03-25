@@ -1,8 +1,8 @@
 use hdk::prelude::*;
 
-pub fn remove_link(base: EntryHash, target: EntryHash, tag: LinkTag) -> ExternResult<ActionHash> {
+pub fn remove_link(input: GetLinksInput, target: EntryHash) -> ExternResult<ActionHash> {
     let target = AnyLinkableHash::from(target);
-    match get_links(base, .., Some(tag))?
+    match get_links(input)?
         .into_iter()
         .find(|link| target == link.target)
     {
