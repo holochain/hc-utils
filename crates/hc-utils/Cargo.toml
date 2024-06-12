@@ -1,6 +1,6 @@
 [package]
 name = "hc_utils"
-version = "0.4.0-dev.6"
+version = "0.4.0-dev.7"
 description = "Helper functions for holochain hdk development"
 homepage = "https://github.com/holochain/hc-utils"
 license = "Apache-2.0"
