@@ -1,16 +1,16 @@
-use crate::error::*;
-use crate::local_source_chain::local_source_chain;
-use hdk3::prelude::*;
+use hdk::prelude::*;
 
 /// Query for an existing Entry in the local source-chain matching the given EntryType name(s).  If
 /// one exists, return it Address, otherwise returns error.
-pub fn exists(value: Entry) -> UtilsResult<HeaderHash> {
-    for element in local_source_chain().unwrap().0 {
-        if let element::ElementEntry::Present(entry) = element.entry() {
+pub fn exists(value: Entry) -> ExternResult<ActionHash> {
+    for record in super::local_source_chain().unwrap() {
+        if let RecordEntry::Present(entry) = record.entry() {
             if entry.clone() == value {
-                return Ok(element.header_address().clone());
+                return Ok(record.action_address().clone());
             }
         }
     }
-    return Err(UtilsError::EntryNotFound);
+    return Err(wasm_error!(WasmErrorInner::Guest(
+        "Unable to find entry in dht".to_string()
+    )));
 }

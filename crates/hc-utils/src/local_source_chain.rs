@@ -1,7 +1,7 @@
-use crate::error::*;
-use hdk3::prelude::*;
+use hdk::prelude::*;
 
-pub fn local_source_chain() -> UtilsResult<ElementVec> {
+/// Returns a list of records from the local source-chain
+pub fn local_source_chain() -> ExternResult<Vec<Record>> {
     let filter = QueryFilter::new();
     let with_entry_filter = filter.include_entries(true);
 
@@ -12,7 +12,7 @@ pub fn local_source_chain() -> UtilsResult<ElementVec> {
     //     EntryVisibility::Public,
     // )));
 
-    let header_filter = with_entry_filter.header_type(HeaderType::Create);
-    let query_result: ElementVec = query(header_filter)?;
+    let action_filter = with_entry_filter.action_type(ActionType::Create);
+    let query_result: Vec<Record> = query(action_filter)?;
     Ok(query_result)
 }

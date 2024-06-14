@@ -1,27 +1,50 @@
-use crate::error::*;
-use crate::get_latest_entry::get_latest_entry;
-use hdk3::prelude::*;
+use hdk::prelude::*;
 use std::convert::TryFrom;
 
+/// Gets the entries that are linked to a base with LinkTag by matching with the declared TryFrom Entry.
+/// include_latest_updated_entry is used when an entry is updated in the zome
+/// and if you need the latest update of those entries
 pub fn get_links_and_load_type<R: TryFrom<Entry>>(
-    base: EntryHash,
-    tag: Option<LinkTag>,
-) -> UtilsResult<Vec<R>> {
-    let link_info = get_links(base.into(), tag)?.into_inner();
+    input: GetLinksInput,
+    include_latest_updated_entry: bool,
+) -> ExternResult<Vec<R>> {
+    let link_info = get_links(input)?;
+    if include_latest_updated_entry {
+        let entries: Vec<Entry> = super::get_latest_entries(link_info, GetOptions::default())?;
+        Ok(entries
+            .iter()
+            .flat_map(|entry| match R::try_from(entry.clone()) {
+                Ok(e) => Ok(e),
+                Err(_) => Err(wasm_error!(
+                    "Could not convert get_links result to requested type"
+                )),
+            })
+            .collect())
+    } else {
+        let all_results_records = super::get_details(link_info, GetOptions::default())?;
+        Ok(all_results_records
+            .iter()
+            .flat_map(|link| match link {
+                Some(Details::Entry(EntryDetails { entry, .. })) => {
+                    match R::try_from(entry.clone()) {
+                        Ok(e) => Ok(e),
+                        Err(_) => Err(wasm_error!(
+                            "Could not convert get_links result to requested type"
+                        )),
+                    }
+                }
+                _ => Err(wasm_error!("get_links did not return an app entry")),
+            })
+            .collect())
+    }
+}
 
-    Ok(link_info
-        .iter()
-        .map(
-            |link| match get_latest_entry(link.target.clone(), Default::default()) {
-                Ok(entry) => match R::try_from(entry.clone()) {
-                    Ok(e) => Ok(e),
-                    Err(_) => Err(UtilsError::Generic(
-                        "Could not convert get_links result to requested type",
-                    )),
-                },
-                _ => Err(UtilsError::Generic("get_links did not return an app entry")),
-            },
-        )
-        .filter_map(Result::ok)
-        .collect())
+#[macro_export]
+macro_rules! get_links_and_load_type {
+    ($a: expr) => {
+        get_links_and_load_type($a, false)
+    };
+    ($a: expr, $b: expr) => {
+        get_links_and_load_type($a, $b)
+    };
 }

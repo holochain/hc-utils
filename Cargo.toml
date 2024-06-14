@@ -4,6 +4,8 @@ members = [
   "crates/hc-utils",
 ]
 
+resolver = "2"
+
 [profile.dev]
 opt-level = "z"
 
