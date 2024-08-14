@@ -1,6 +1,6 @@
 [package]
 name = "hc_utils"
-version = "0.4.0-dev.11"
+version = "0.4.0-dev.12"
 description = "Helper functions for holochain hdk development"
 homepage = "https://github.com/holochain/hc-utils"
 license = "Apache-2.0"
@@ -12,7 +12,7 @@ edition = "2021"
 
 [dependencies]
 serde = "1.0"
-hdk = "=0.4.0-dev.11"
+hdk = "=0.4.0-dev.12"
 thiserror = "1.0"
 
 [lib]
