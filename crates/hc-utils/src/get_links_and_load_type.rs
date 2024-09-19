@@ -33,6 +33,18 @@ pub fn get_links_and_load_type<R: TryFrom<Entry>>(
                         )),
                     }
                 }
+                Some(Details::Record(RecordDetails { record, .. })) => {
+                    if let RecordEntry::Present(entry) = &record.entry {
+                        match R::try_from(entry.clone()) {
+                            Ok(e) => Ok(e),
+                            Err(_) => Err(wasm_error!(
+                                "Could not convert get_links result to requested type"
+                            )),
+                        }
+                    } else {
+                        Err(wasm_error!("get_links did not return an app entry"))
+                    }
+                }
                 _ => Err(wasm_error!("get_links did not return an app entry")),
             })
             .collect())
