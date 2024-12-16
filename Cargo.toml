@@ -1,13 +1,22 @@
-[workspace]
+[package]
+name = "hc_utils"
+version = "0.4.0-rc.0"
+description = "Helper functions for holochain hdk development"
+homepage = "https://github.com/holochain/hc-utils"
+license = "Apache-2.0"
+authors = ["zo-el <joel.ulahanna@holo.host>"]
+keywords = [ "holochain", "holo", "hdk", "hdk-helpers"]
+categories = [ "cryptography" ]
+readme = "README.md"
+edition = "2021"
 
-members = [
-  "crates/hc-utils",
-]
+[dependencies]
+serde = "1.0"
+hdk = "=0.4.0-rc.0"
+thiserror = "1.0"
 
-resolver = "2"
-
-[profile.dev]
-opt-level = "z"
-
-[profile.release]
-opt-level = "z"
+[lib]
+name = "hc_utils"
+path = "src/lib.rs"
+# "cargo test --doc" doctests are not performed with the "cdylib" crate-type
+crate-type = ["cdylib", "rlib"]
