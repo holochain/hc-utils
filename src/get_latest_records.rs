@@ -9,7 +9,7 @@ enum Latest {
 pub fn get_latest_records(
     target: Vec<Link>,
     option: GetOptions,
-) -> ExternResult<Vec<(Record, ActionHash, Link)>> {
+) -> ExternResult<Vec<(Record, Link)>> {
     // Get the original
     let initial_details = super::get_details(target, option.clone())?;
     initial_details
@@ -21,7 +21,7 @@ pub fn get_latest_records(
             loop {
                 match latest_details {
                     // Found an entry with no more updates
-                    Latest::Found(record) => return Ok((record, details.1, details.2)),
+                    Latest::Found(record) => return Ok((record, details.1)),
                     // Found an update so follow it
                     Latest::Continue(action_hash) => {
                         latest_details = _helper_get_latest_record(action_hash, option.clone())?
