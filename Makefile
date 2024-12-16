@@ -18,6 +18,7 @@ publish:
 	git tag $(shell jq .hdk ./version-manager.json) | 2>/dev/null
 	git push origin v$(shell jq .hdk ./version-manager.json)
 	git push origin refs/tags/$(shell jq .hdk ./version-manager.json)
+	
 update:
 	echo '⚙️  Updating hdk crate...'
 	cargo upgrade -p hdk@=$(shell jq .hdk ./version-manager.json) --pinned
