@@ -1,7 +1,10 @@
 use hdk::prelude::*;
 
 /// optimized get details by links
-pub fn get_details(links: Vec<Link>, option: GetOptions) -> ExternResult<Vec<(Details, Link)>> {
+pub fn get_details(
+    links: Vec<Link>,
+    option: GetOptions,
+) -> ExternResult<Vec<(Details, Link, ActionHash)>> {
     let links: Vec<(AnyDhtHash, Link)> = links
         .iter()
         .filter_map(|l| match l.clone().target.into_entry_hash() {
@@ -24,13 +27,13 @@ pub fn get_details(links: Vec<Link>, option: GetOptions) -> ExternResult<Vec<(De
         .filter_map(|d| match d {
             Some(details) => {
                 if let Details::Record(r) = details {
-                    let action_hash: AnyDhtHash = r.record.action_address().clone().into();
-                    let found =
-                        links
-                            .iter()
-                            .find_map(|(h, l)| if h == &action_hash { Some(l) } else { None });
+                    let action_hash = r.record.action_address().clone();
+                    let any_hash: AnyDhtHash = action_hash.clone().into();
+                    let found = links
+                        .iter()
+                        .find_map(|(h, l)| if h == &any_hash { Some(l) } else { None });
                     match found {
-                        Some(l) => Some((details.clone(), l.clone())),
+                        Some(l) => Some((details.clone(), l.clone(), action_hash)),
                         None => None,
                     }
                 } else {
