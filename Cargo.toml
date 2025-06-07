@@ -2,7 +2,8 @@
 name = "hc_utils"
 version = "0.5.2"
 description = "Helper functions for holochain hdk development"
-homepage = "https://github.com/holochain/hc-utils"
+homepage = "https://www.holochain.org/"
+repository = "https://github.com/holochain/hc-utils"
 license = "Apache-2.0"
 authors = ["zo-el <joel.ulahanna@holo.host>"]
 keywords = [ "holochain", "holo", "hdk", "hdk-helpers"]
