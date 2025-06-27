@@ -9,8 +9,8 @@
 #	- Update the version-manager.json file
 # 	- make update
 #	- make publish
-# Publishing
 
+# Publishing
 publish:
 	git checkout -b v$(shell jq .hdk ./version-manager.json) | 2> /dev/null
 	git commit -a -m "version bump $(shell jq .hdk ./version-manager.json)"
