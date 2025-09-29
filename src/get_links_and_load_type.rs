@@ -14,9 +14,10 @@ pub struct LoadedLinks<R> {
 /// include_latest_updated_entry is used when an entry is updated in the zome
 /// and if you need the latest update of those entries
 pub fn get_links_and_load_type<R: TryFrom<Entry>>(
-    input: GetLinksInput,
+    query: LinkQuery,
+    strategy: GetStrategy,
 ) -> ExternResult<Vec<LoadedLinks<R>>> {
-    let link_info = get_links(input)?;
+    let link_info = get_links(query, strategy)?;
     let entries: Vec<LatestRecord> = super::get_latest_records(link_info, GetOptions::default())?;
     Ok(entries
         .iter()

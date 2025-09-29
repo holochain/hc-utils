@@ -1,7 +1,10 @@
 use hdk::prelude::*;
 
-pub fn get_latest_linked_action(input: GetLinksInput) -> ExternResult<Vec<Record>> {
-    let links = get_links(input)?;
+pub fn get_latest_linked_action(
+    query: LinkQuery,
+    strategy: GetStrategy,
+) -> ExternResult<Vec<Record>> {
+    let links = get_links(query, strategy)?;
 
     let records: Vec<Record> = links
         .into_iter()

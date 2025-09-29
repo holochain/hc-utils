@@ -1,8 +1,8 @@
 use hdk::prelude::*;
 
 // gets latest link created to the specific base
-pub fn get_latest_link(input: GetLinksInput) -> ExternResult<Option<Link>> {
-    let profile_info = get_links(input)?;
+pub fn get_latest_link(query: LinkQuery, strategy: GetStrategy) -> ExternResult<Option<Link>> {
+    let profile_info = get_links(query, strategy)?;
 
     // Find the latest
     let latest_info =
