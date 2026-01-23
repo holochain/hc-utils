@@ -12,7 +12,7 @@ edition = "2021"
 
 [dependencies]
 serde = "1.0"
-hdk = "0.6"
+hdk = "=0.6.1-rc.0"
 holochain_serialized_bytes= "0.0.56"
 thiserror = "1.0"
 
