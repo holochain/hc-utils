@@ -18,7 +18,7 @@ pub fn get_details(
     let msg_results_input: Vec<GetInput> = links
         .clone()
         .into_iter()
-        .map(|link| (GetInput::new(link.0, option.clone())))
+        .map(|link| GetInput::new(link.0, option.clone()))
         .collect();
     let list = HDK.with(|hdk| hdk.borrow().get_details(msg_results_input))?;
 
