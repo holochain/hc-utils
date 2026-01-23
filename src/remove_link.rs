@@ -12,7 +12,7 @@ pub fn remove_link(
         Some(links) => {
             return Ok(delete_link(
                 links.create_link_hash,
-                GetOptions { strategy },
+                GetOptions::new(strategy),
             )?)
         }
         None => {
